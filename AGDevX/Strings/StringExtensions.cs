@@ -117,4 +117,14 @@ public static class StringExtensions
     {
         return str != string.Empty;
     }
+
+    /// <summary>
+    /// Returns null if the string is null or whitespace
+    /// </summary>
+    /// <param name="str">String to check (required)</param>
+    /// <returns>Null if the string is null or whitespace. Otherwise, the string.</returns>
+    public static string? NullIfNullOrWhiteSpace([NotNullIfNotNull(nameof(str))] this string? str)
+    {
+        return str.IsNullOrWhiteSpace() ? null : str;
+    }
 }
