@@ -119,7 +119,7 @@ public static class StringExtensions
     }
 
     /// <summary>
-    /// Returns null if the string is null or whitespace
+    /// Returns null if the string is null or whitespace. Otherwise, returns the string.
     /// </summary>
     /// <param name="str">String to check (required)</param>
     /// <returns>Null if the string is null or whitespace. Otherwise, the string.</returns>
