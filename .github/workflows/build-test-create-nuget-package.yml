@@ -9,7 +9,7 @@ on:
   #    - 'v*'
 
 env:
-  SOLUTION_PATH: 'AGDevX.sln'
+  SOLUTION_PATH: 'AGDevX.slnx'
   CONFIGURATION: 'Release'
   PACKAGE_OUTPUT_DIRECTORY: ${{ github.workspace }}\output
   NUGET_API_URL: https://api.nuget.org/v3/index.json
