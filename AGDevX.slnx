@@ -1,0 +1,4 @@
+<Solution>
+  <Project Path="AGDevX.Tests/AGDevX.Tests.csproj" />
+  <Project Path="AGDevX/AGDevX.csproj" />
+</Solution>
