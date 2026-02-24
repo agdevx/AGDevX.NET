@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using AGDevX.Exceptions;
@@ -13,22 +13,21 @@ public sealed class ExceptionDetailTests
     private const string _extensionMethodExceptionMessage = "Unhandled scenario";
     private const string _nullReferenceExceptionMessage = "Dude, the object was null.";
 
-    private static NullReferenceException? _nullReferenceException;
-    private static ExtensionMethodException? _extensionMethodException;
-    private static ApplicationStartupException? _applicationStartupException;
-
     private static readonly List<string> _assemblyPrefixes = new() { "AGDevX", "JMC", "RD" };
 
     public class When_calling_GetExceptionDetail
     {
         public class And_including_stack_frames_and_filtering_stack_frames_for_a_generic_method
         {
+            //-- Scoped to this nested class so the static local function can access it without a closure
+            private static ApplicationStartupException? _applicationStartupException;
+
             [Fact]
             public void Then_return_filtered_stack_frames()
             {
                 //-- Arrange
-                _nullReferenceException = new NullReferenceException(_nullReferenceExceptionMessage);
-                _applicationStartupException = new ApplicationStartupException(_applicationStartupExceptionMessage, _nullReferenceException);
+                var nullReferenceException = new NullReferenceException(_nullReferenceExceptionMessage);
+                _applicationStartupException = new ApplicationStartupException(_applicationStartupExceptionMessage, nullReferenceException);
 
                 var includeStackFrames = true;
                 var filterStackFrames = true;
@@ -68,8 +67,8 @@ public sealed class ExceptionDetailTests
             public void Then_return_filtered_stack_frames()
             {
                 //-- Arrange
-                _nullReferenceException = new NullReferenceException(_nullReferenceExceptionMessage);
-                _applicationStartupException = new ApplicationStartupException(_applicationStartupExceptionMessage, _nullReferenceException);
+                var nullReferenceException = new NullReferenceException(_nullReferenceExceptionMessage);
+                var applicationStartupException = new ApplicationStartupException(_applicationStartupExceptionMessage, nullReferenceException);
 
                 var includeStackFrames = true;
                 var filterStackFrames = true;
@@ -77,15 +76,15 @@ public sealed class ExceptionDetailTests
                 //-- Act
                 try
                 {
-                    throw _applicationStartupException;
+                    throw applicationStartupException;
                 }
                 catch (ApplicationStartupException appStartEx)
                 {
                     var exceptionDetail = appStartEx.GetExceptionDetail(includeStackFrames, filterStackFrames, _assemblyPrefixes);
 
                     //-- Assert
-                    Assert.True(exceptionDetail.Code.Equals(_applicationStartupException.Code));
-                    Assert.True(exceptionDetail.Message.Equals(_applicationStartupException.Message));
+                    Assert.True(exceptionDetail.Code.Equals(applicationStartupException.Code));
+                    Assert.True(exceptionDetail.Message.Equals(applicationStartupException.Message));
                     Assert.True(exceptionDetail.StackFrames.IsNotNull());
                     Assert.IsType<int>(exceptionDetail.StackFrames.First().LineNumber);
                     Assert.True(exceptionDetail.StackFrames.First().Method!.Equals("Then_return_filtered_stack_frames()"));
@@ -104,18 +103,18 @@ public sealed class ExceptionDetailTests
             public void GetExceptionDetail_()
             {
                 //-- Arrange
-                _extensionMethodException = new ExtensionMethodException(_extensionMethodExceptionMessage);
-                _applicationStartupException = new ApplicationStartupException(_extensionMethodExceptionMessage, _extensionMethodException);
+                var extensionMethodException = new ExtensionMethodException(_extensionMethodExceptionMessage);
+                var applicationStartupException = new ApplicationStartupException(_extensionMethodExceptionMessage, extensionMethodException);
 
                 var includeStackFrames = true;
                 var filterStackFrames = true;
 
                 //-- Act
-                var exceptionDetail = _applicationStartupException.GetExceptionDetail(includeStackFrames, filterStackFrames);
+                var exceptionDetail = applicationStartupException.GetExceptionDetail(includeStackFrames, filterStackFrames);
 
                 //-- Assert
-                Assert.True(exceptionDetail.Code.Equals(_applicationStartupException.Code));
-                Assert.True(exceptionDetail.Message.Equals(_applicationStartupException.Message));
+                Assert.True(exceptionDetail.Code.Equals(applicationStartupException.Code));
+                Assert.True(exceptionDetail.Message.Equals(applicationStartupException.Message));
                 Assert.True(exceptionDetail.StackFrames.IsNotNull());
                 Assert.True(exceptionDetail.InnerException.IsNotNull());
             }
@@ -127,8 +126,8 @@ public sealed class ExceptionDetailTests
             public void Then_do_not_return_stack_frames()
             {
                 //-- Arrange
-                _nullReferenceException = new NullReferenceException(_nullReferenceExceptionMessage);
-                _applicationStartupException = new ApplicationStartupException(_applicationStartupExceptionMessage, _nullReferenceException);
+                var nullReferenceException = new NullReferenceException(_nullReferenceExceptionMessage);
+                var applicationStartupException = new ApplicationStartupException(_applicationStartupExceptionMessage, nullReferenceException);
 
                 var includeStackFrames = false;
                 var filterStackFrames = true;
@@ -136,15 +135,15 @@ public sealed class ExceptionDetailTests
                 //-- Act
                 try
                 {
-                    throw _applicationStartupException;
+                    throw applicationStartupException;
                 }
                 catch (ApplicationStartupException appStartEx)
                 {
                     var exceptionDetail = appStartEx.GetExceptionDetail(includeStackFrames, filterStackFrames, _assemblyPrefixes);
 
                     //-- Assert
-                    Assert.True(exceptionDetail.Code.Equals(_applicationStartupException.Code));
-                    Assert.True(exceptionDetail.Message.Equals(_applicationStartupException.Message));
+                    Assert.True(exceptionDetail.Code.Equals(applicationStartupException.Code));
+                    Assert.True(exceptionDetail.Message.Equals(applicationStartupException.Message));
                     Assert.True(exceptionDetail.StackFrames.IsNull());
                     Assert.True(exceptionDetail.InnerException.IsNotNull());
                 }
