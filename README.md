@@ -1,5 +1,8 @@
 # AGDevX .NET
 
+[![Build](https://github.com/agdevx/AGDevX.NET/actions/workflows/build-test-create-nuget-package.yml/badge.svg)](https://github.com/agdevx/AGDevX.NET/actions/workflows/build-test-create-nuget-package.yml)
+[![NuGet](https://img.shields.io/nuget/v/AGDevX.svg)](https://www.nuget.org/packages/AGDevX)
+
 AGDevX .NET is a collection of C# extension methods, utilities, and other helpful, foundational code that can help make developing applications more elegant.
 
 # Features

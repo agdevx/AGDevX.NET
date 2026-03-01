@@ -1,0 +1,275 @@
+#nullable enable
+AGDevX.Assemblies.AssemblyExtensions
+AGDevX.Assemblies.AssemblyUtility
+AGDevX.Attributes.AttributeExtensions
+AGDevX.DateTimes.DateTimeExtensions
+AGDevX.Enums.EnumExtensions
+AGDevX.Enums.EnumStringValueAttribute
+AGDevX.Enums.EnumStringValueAttribute.EnumStringValueAttribute(string! value) -> void
+AGDevX.Enums.EnumStringValueAttribute.Value.get -> string!
+AGDevX.Enums.EnumStringValueAttributeExtensions
+AGDevX.Exceptions.AcquireTokenException
+AGDevX.Exceptions.AcquireTokenException.AcquireTokenException() -> void
+AGDevX.Exceptions.AcquireTokenException.AcquireTokenException(string! message) -> void
+AGDevX.Exceptions.AcquireTokenException.AcquireTokenException(string! message, string! code) -> void
+AGDevX.Exceptions.AcquireTokenException.AcquireTokenException(string! message, string! code, System.Exception! innerException) -> void
+AGDevX.Exceptions.AcquireTokenException.AcquireTokenException(string! message, System.Exception! innerException) -> void
+AGDevX.Exceptions.ApplicationStartupException
+AGDevX.Exceptions.ApplicationStartupException.ApplicationStartupException() -> void
+AGDevX.Exceptions.ApplicationStartupException.ApplicationStartupException(string! message) -> void
+AGDevX.Exceptions.ApplicationStartupException.ApplicationStartupException(string! message, string! code) -> void
+AGDevX.Exceptions.ApplicationStartupException.ApplicationStartupException(string! message, string! code, System.Exception! innerException) -> void
+AGDevX.Exceptions.ApplicationStartupException.ApplicationStartupException(string! message, System.Exception! innerException) -> void
+AGDevX.Exceptions.ClaimNotFoundException
+AGDevX.Exceptions.ClaimNotFoundException.ClaimNotFoundException() -> void
+AGDevX.Exceptions.ClaimNotFoundException.ClaimNotFoundException(string! message) -> void
+AGDevX.Exceptions.ClaimNotFoundException.ClaimNotFoundException(string! message, string! code) -> void
+AGDevX.Exceptions.ClaimNotFoundException.ClaimNotFoundException(string! message, string! code, System.Exception! innerException) -> void
+AGDevX.Exceptions.ClaimNotFoundException.ClaimNotFoundException(string! message, System.Exception! innerException) -> void
+AGDevX.Exceptions.CodedApplicationException
+AGDevX.Exceptions.CodedApplicationException.CodedApplicationException() -> void
+AGDevX.Exceptions.CodedApplicationException.CodedApplicationException(string! message) -> void
+AGDevX.Exceptions.CodedApplicationException.CodedApplicationException(string! message, string! code) -> void
+AGDevX.Exceptions.CodedApplicationException.CodedApplicationException(string! message, string! code, System.Exception! innerException) -> void
+AGDevX.Exceptions.CodedApplicationException.CodedApplicationException(string! message, System.Exception! innerException) -> void
+AGDevX.Exceptions.CodedArgumentNullException
+AGDevX.Exceptions.CodedArgumentNullException.CodedArgumentNullException() -> void
+AGDevX.Exceptions.CodedArgumentNullException.CodedArgumentNullException(string! argumentName) -> void
+AGDevX.Exceptions.CodedArgumentNullException.CodedArgumentNullException(string! argumentName, string! code) -> void
+AGDevX.Exceptions.CodedArgumentNullException.CodedArgumentNullException(string! argumentName, string! code, System.Exception! innerException) -> void
+AGDevX.Exceptions.CodedArgumentNullException.CodedArgumentNullException(string! message, System.Exception! innerException) -> void
+AGDevX.Exceptions.ExceptionDetail
+AGDevX.Exceptions.ExceptionDetail.Code.get -> string!
+AGDevX.Exceptions.ExceptionDetail.Code.set -> void
+AGDevX.Exceptions.ExceptionDetail.ExceptionDetail() -> void
+AGDevX.Exceptions.ExceptionDetail.InnerException.get -> AGDevX.Exceptions.ExceptionDetail?
+AGDevX.Exceptions.ExceptionDetail.InnerException.set -> void
+AGDevX.Exceptions.ExceptionDetail.Message.get -> string!
+AGDevX.Exceptions.ExceptionDetail.Message.set -> void
+AGDevX.Exceptions.ExceptionDetail.StackFrameModel
+AGDevX.Exceptions.ExceptionDetail.StackFrameModel.AssemblyFile.get -> string?
+AGDevX.Exceptions.ExceptionDetail.StackFrameModel.AssemblyFile.set -> void
+AGDevX.Exceptions.ExceptionDetail.StackFrameModel.AssemblyName.get -> string?
+AGDevX.Exceptions.ExceptionDetail.StackFrameModel.AssemblyName.set -> void
+AGDevX.Exceptions.ExceptionDetail.StackFrameModel.Class.get -> string?
+AGDevX.Exceptions.ExceptionDetail.StackFrameModel.Class.set -> void
+AGDevX.Exceptions.ExceptionDetail.StackFrameModel.CodeFile.get -> string?
+AGDevX.Exceptions.ExceptionDetail.StackFrameModel.CodeFile.set -> void
+AGDevX.Exceptions.ExceptionDetail.StackFrameModel.LineNumber.get -> int
+AGDevX.Exceptions.ExceptionDetail.StackFrameModel.LineNumber.set -> void
+AGDevX.Exceptions.ExceptionDetail.StackFrameModel.Method.get -> string?
+AGDevX.Exceptions.ExceptionDetail.StackFrameModel.Method.set -> void
+AGDevX.Exceptions.ExceptionDetail.StackFrameModel.StackFrameModel() -> void
+AGDevX.Exceptions.ExceptionDetail.StackFrames.get -> System.Collections.Generic.IEnumerable<AGDevX.Exceptions.ExceptionDetail.StackFrameModel!>?
+AGDevX.Exceptions.ExceptionDetail.StackFrames.set -> void
+AGDevX.Exceptions.ExceptionDetailExtensions
+AGDevX.Exceptions.ExtensionMethodException
+AGDevX.Exceptions.ExtensionMethodException.ExtensionMethodException() -> void
+AGDevX.Exceptions.ExtensionMethodException.ExtensionMethodException(string! message) -> void
+AGDevX.Exceptions.ExtensionMethodException.ExtensionMethodException(string! message, string! code) -> void
+AGDevX.Exceptions.ExtensionMethodException.ExtensionMethodException(string! message, string! code, System.Exception! innerException) -> void
+AGDevX.Exceptions.ExtensionMethodException.ExtensionMethodException(string! message, System.Exception! innerException) -> void
+AGDevX.Exceptions.ExtensionMethodParameterNullException
+AGDevX.Exceptions.ExtensionMethodParameterNullException.ExtensionMethodParameterNullException() -> void
+AGDevX.Exceptions.ExtensionMethodParameterNullException.ExtensionMethodParameterNullException(string! argumentName) -> void
+AGDevX.Exceptions.ExtensionMethodParameterNullException.ExtensionMethodParameterNullException(string! argumentName, string! code) -> void
+AGDevX.Exceptions.ExtensionMethodParameterNullException.ExtensionMethodParameterNullException(string! argumentName, string! code, System.Exception! innerException) -> void
+AGDevX.Exceptions.ExtensionMethodParameterNullException.ExtensionMethodParameterNullException(string! message, System.Exception! innerException) -> void
+AGDevX.Exceptions.MissingRequiredClaimException
+AGDevX.Exceptions.MissingRequiredClaimException.MissingRequiredClaimException() -> void
+AGDevX.Exceptions.MissingRequiredClaimException.MissingRequiredClaimException(string! message) -> void
+AGDevX.Exceptions.MissingRequiredClaimException.MissingRequiredClaimException(string! message, string! code) -> void
+AGDevX.Exceptions.MissingRequiredClaimException.MissingRequiredClaimException(string! message, string! code, System.Exception! innerException) -> void
+AGDevX.Exceptions.MissingRequiredClaimException.MissingRequiredClaimException(string! message, System.Exception! innerException) -> void
+AGDevX.Exceptions.NotAuthorizedException
+AGDevX.Exceptions.NotAuthorizedException.NotAuthorizedException() -> void
+AGDevX.Exceptions.NotAuthorizedException.NotAuthorizedException(string! message) -> void
+AGDevX.Exceptions.NotAuthorizedException.NotAuthorizedException(string! message, string! code) -> void
+AGDevX.Exceptions.NotAuthorizedException.NotAuthorizedException(string! message, string! code, System.Exception! innerException) -> void
+AGDevX.Exceptions.NotAuthorizedException.NotAuthorizedException(string! message, System.Exception! innerException) -> void
+AGDevX.Guids.GuidExtensions
+AGDevX.IEnumerables.DictionaryExtensions
+AGDevX.IEnumerables.IEnumerableExtensions
+AGDevX.Objects.ObjectExtensions
+AGDevX.Security.Auth0ClaimType
+AGDevX.Security.Auth0ClaimType.GrantType = 1 -> AGDevX.Security.Auth0ClaimType
+AGDevX.Security.ClaimsPrincipalExtensions
+AGDevX.Security.CustomClaimType
+AGDevX.Security.CustomClaimType.AppMetadata = 2 -> AGDevX.Security.CustomClaimType
+AGDevX.Security.CustomClaimType.CreatedAt = 3 -> AGDevX.Security.CustomClaimType
+AGDevX.Security.CustomClaimType.IsActive = 5 -> AGDevX.Security.CustomClaimType
+AGDevX.Security.CustomClaimType.RequestIp = 1 -> AGDevX.Security.CustomClaimType
+AGDevX.Security.CustomClaimType.UserId = 4 -> AGDevX.Security.CustomClaimType
+AGDevX.Security.JwtClaimType
+AGDevX.Security.JwtClaimType.AccessTokenHash = 30 -> AGDevX.Security.JwtClaimType
+AGDevX.Security.JwtClaimType.Address = 25 -> AGDevX.Security.JwtClaimType
+AGDevX.Security.JwtClaimType.Audience = 3 -> AGDevX.Security.JwtClaimType
+AGDevX.Security.JwtClaimType.AuthenticationContextClassReference = 32 -> AGDevX.Security.JwtClaimType
+AGDevX.Security.JwtClaimType.AuthenticationMethodsReference = 33 -> AGDevX.Security.JwtClaimType
+AGDevX.Security.JwtClaimType.AuthorizedParty = 27 -> AGDevX.Security.JwtClaimType
+AGDevX.Security.JwtClaimType.AuthTime = 29 -> AGDevX.Security.JwtClaimType
+AGDevX.Security.JwtClaimType.Birthdate = 20 -> AGDevX.Security.JwtClaimType
+AGDevX.Security.JwtClaimType.ClientId = 36 -> AGDevX.Security.JwtClaimType
+AGDevX.Security.JwtClaimType.CodeHash = 31 -> AGDevX.Security.JwtClaimType
+AGDevX.Security.JwtClaimType.Email = 17 -> AGDevX.Security.JwtClaimType
+AGDevX.Security.JwtClaimType.EmailVerified = 18 -> AGDevX.Security.JwtClaimType
+AGDevX.Security.JwtClaimType.Expiration = 4 -> AGDevX.Security.JwtClaimType
+AGDevX.Security.JwtClaimType.FamilyName = 10 -> AGDevX.Security.JwtClaimType
+AGDevX.Security.JwtClaimType.Gender = 19 -> AGDevX.Security.JwtClaimType
+AGDevX.Security.JwtClaimType.GivenName = 9 -> AGDevX.Security.JwtClaimType
+AGDevX.Security.JwtClaimType.IssuedAt = 6 -> AGDevX.Security.JwtClaimType
+AGDevX.Security.JwtClaimType.Issuer = 1 -> AGDevX.Security.JwtClaimType
+AGDevX.Security.JwtClaimType.JwtId = 7 -> AGDevX.Security.JwtClaimType
+AGDevX.Security.JwtClaimType.Locale = 22 -> AGDevX.Security.JwtClaimType
+AGDevX.Security.JwtClaimType.MiddleName = 11 -> AGDevX.Security.JwtClaimType
+AGDevX.Security.JwtClaimType.Name = 8 -> AGDevX.Security.JwtClaimType
+AGDevX.Security.JwtClaimType.Nickname = 12 -> AGDevX.Security.JwtClaimType
+AGDevX.Security.JwtClaimType.Nonce = 28 -> AGDevX.Security.JwtClaimType
+AGDevX.Security.JwtClaimType.NotBefore = 5 -> AGDevX.Security.JwtClaimType
+AGDevX.Security.JwtClaimType.PhoneNumber = 23 -> AGDevX.Security.JwtClaimType
+AGDevX.Security.JwtClaimType.PhoneNumberVerified = 24 -> AGDevX.Security.JwtClaimType
+AGDevX.Security.JwtClaimType.Picture = 15 -> AGDevX.Security.JwtClaimType
+AGDevX.Security.JwtClaimType.PreferredUsername = 13 -> AGDevX.Security.JwtClaimType
+AGDevX.Security.JwtClaimType.Profile = 14 -> AGDevX.Security.JwtClaimType
+AGDevX.Security.JwtClaimType.Roles = 37 -> AGDevX.Security.JwtClaimType
+AGDevX.Security.JwtClaimType.Scope = 35 -> AGDevX.Security.JwtClaimType
+AGDevX.Security.JwtClaimType.SessionId = 34 -> AGDevX.Security.JwtClaimType
+AGDevX.Security.JwtClaimType.Subject = 2 -> AGDevX.Security.JwtClaimType
+AGDevX.Security.JwtClaimType.UpdatedAt = 26 -> AGDevX.Security.JwtClaimType
+AGDevX.Security.JwtClaimType.Website = 16 -> AGDevX.Security.JwtClaimType
+AGDevX.Security.JwtClaimType.ZoneInfo = 21 -> AGDevX.Security.JwtClaimType
+AGDevX.Strings.StringExtensions
+override AGDevX.Exceptions.AcquireTokenException.Code.get -> string!
+override AGDevX.Exceptions.AcquireTokenException.Code.set -> void
+override AGDevX.Exceptions.ApplicationStartupException.Code.get -> string!
+override AGDevX.Exceptions.ApplicationStartupException.Code.set -> void
+override AGDevX.Exceptions.ClaimNotFoundException.Code.get -> string!
+override AGDevX.Exceptions.ClaimNotFoundException.Code.set -> void
+override AGDevX.Exceptions.CodedArgumentNullException.ParamName.get -> string?
+override AGDevX.Exceptions.ExtensionMethodException.Code.get -> string!
+override AGDevX.Exceptions.ExtensionMethodException.Code.set -> void
+override AGDevX.Exceptions.ExtensionMethodParameterNullException.Code.get -> string!
+override AGDevX.Exceptions.ExtensionMethodParameterNullException.Code.set -> void
+override AGDevX.Exceptions.MissingRequiredClaimException.Code.get -> string!
+override AGDevX.Exceptions.MissingRequiredClaimException.Code.set -> void
+override AGDevX.Exceptions.NotAuthorizedException.Code.get -> string!
+override AGDevX.Exceptions.NotAuthorizedException.Code.set -> void
+static AGDevX.Assemblies.AssemblyExtensions.FullNameStartsWithPrefix(this System.Reflection.Assembly! assembly, string! prefix) -> bool
+static AGDevX.Assemblies.AssemblyExtensions.FullNameStartsWithPrefixes(this System.Reflection.Assembly! assembly, System.Collections.Generic.IEnumerable<string!>! prefixes) -> bool
+static AGDevX.Assemblies.AssemblyUtility.AssemblyNameStartsWithAnyPrefix(string! assemblyFullName, System.Collections.Generic.IEnumerable<string!>! assemblyPrefixes) -> bool
+static AGDevX.Assemblies.AssemblyUtility.GetAssemblies(System.Reflection.Assembly? parent, System.Collections.Generic.IEnumerable<string!>! assemblyPrefixes) -> System.Collections.Generic.List<System.Reflection.Assembly!>!
+static AGDevX.Attributes.AttributeExtensions.GetDescription<T>(this T obj, bool searchInheritanceChain = true) -> string?
+static AGDevX.DateTimes.DateTimeExtensions.SpecifyKind(this System.DateTime value, System.DateTimeKind kind) -> System.DateTime
+static AGDevX.Enums.EnumExtensions.IsOneOf(this System.Enum! enumeration, params System.Enum![]! enums) -> bool
+static AGDevX.Enums.EnumStringValueAttributeExtensions.StringValue(this System.Enum! value) -> string!
+static AGDevX.Exceptions.ExceptionDetailExtensions.GetExceptionDetail(this AGDevX.Exceptions.CodedApplicationException! codedEx, bool includeStackFrames = true, bool filterStackFrames = false, System.Collections.Generic.IEnumerable<string!>? assemblyPrefixes = null) -> AGDevX.Exceptions.ExceptionDetail!
+static AGDevX.Exceptions.ExceptionDetailExtensions.GetExceptionDetail(this System.Exception! ex, string! code, bool includeStackFrames = true, bool filterStackFrames = false, System.Collections.Generic.IEnumerable<string!>? assemblyPrefixes = null) -> AGDevX.Exceptions.ExceptionDetail!
+static AGDevX.Guids.GuidExtensions.IsEmpty(this System.Guid guid) -> bool
+static AGDevX.Guids.GuidExtensions.IsNotEmpty(this System.Guid guid) -> bool
+static AGDevX.Guids.GuidExtensions.IsNotNull(this System.Guid? guid) -> bool
+static AGDevX.Guids.GuidExtensions.IsNotNullNorEmpty(this System.Guid? guid) -> bool
+static AGDevX.Guids.GuidExtensions.IsNull(this System.Guid? guid) -> bool
+static AGDevX.Guids.GuidExtensions.IsNullOrEmpty(this System.Guid? guid) -> bool
+static AGDevX.IEnumerables.DictionaryExtensions.Concatenate<TKey, TValue>(this System.Collections.Generic.Dictionary<TKey, TValue>! dictionary1, System.Collections.Generic.Dictionary<TKey, TValue>! dictionary2) -> System.Collections.Generic.Dictionary<TKey, TValue>!
+static AGDevX.IEnumerables.DictionaryExtensions.ReverseKeysAndValues<TKey, TValue>(this System.Collections.Generic.Dictionary<TKey, TValue>! dictionary) -> System.Collections.Generic.Dictionary<TValue, TKey>!
+static AGDevX.IEnumerables.IEnumerableExtensions.AnySafe<T>(this System.Collections.Generic.IEnumerable<T>? enumerable) -> bool
+static AGDevX.IEnumerables.IEnumerableExtensions.ContainsIgnoreCase(this System.Collections.Generic.IEnumerable<string?>! strings, string! str, System.StringComparer? stringComparer = null) -> bool
+static AGDevX.IEnumerables.IEnumerableExtensions.HasCommonStringElement(this System.Collections.Generic.IEnumerable<string!>! enumerable1, System.Collections.Generic.IEnumerable<string!>! enumerable2, System.StringComparer? stringComparer = null) -> bool
+static AGDevX.IEnumerables.IEnumerableExtensions.IsNullOrEmpty<T>(this System.Collections.Generic.IEnumerable<T>? enumerable) -> bool
+static AGDevX.IEnumerables.IEnumerableExtensions.ToDataTable<T>(this System.Collections.Generic.IEnumerable<T>! enumerable, string! columnName = "Id") -> System.Data.DataTable!
+static AGDevX.Objects.ObjectExtensions.IsNotNull(this object? obj) -> bool
+static AGDevX.Objects.ObjectExtensions.IsNull(this object? obj) -> bool
+static AGDevX.Security.ClaimsPrincipalExtensions.GetAccessTokenHash(this System.Security.Claims.ClaimsPrincipal! claimsPrincipal) -> string!
+static AGDevX.Security.ClaimsPrincipalExtensions.GetAddress(this System.Security.Claims.ClaimsPrincipal! claimsPrincipal) -> System.Text.Json.JsonElement
+static AGDevX.Security.ClaimsPrincipalExtensions.GetAudiences(this System.Security.Claims.ClaimsPrincipal! claimsPrincipal) -> System.Collections.Generic.IReadOnlyList<string!>!
+static AGDevX.Security.ClaimsPrincipalExtensions.GetAuthenticationContextClassReference(this System.Security.Claims.ClaimsPrincipal! claimsPrincipal) -> string!
+static AGDevX.Security.ClaimsPrincipalExtensions.GetAuthenticationMethodsReference(this System.Security.Claims.ClaimsPrincipal! claimsPrincipal) -> string!
+static AGDevX.Security.ClaimsPrincipalExtensions.GetAuthorizedParty(this System.Security.Claims.ClaimsPrincipal! claimsPrincipal) -> string!
+static AGDevX.Security.ClaimsPrincipalExtensions.GetAuthTime(this System.Security.Claims.ClaimsPrincipal! claimsPrincipal) -> int
+static AGDevX.Security.ClaimsPrincipalExtensions.GetBirthdate(this System.Security.Claims.ClaimsPrincipal! claimsPrincipal) -> System.DateTime
+static AGDevX.Security.ClaimsPrincipalExtensions.GetClientId(this System.Security.Claims.ClaimsPrincipal! claimsPrincipal) -> string!
+static AGDevX.Security.ClaimsPrincipalExtensions.GetCodeHash(this System.Security.Claims.ClaimsPrincipal! claimsPrincipal) -> string!
+static AGDevX.Security.ClaimsPrincipalExtensions.GetEmail(this System.Security.Claims.ClaimsPrincipal! claimsPrincipal) -> string!
+static AGDevX.Security.ClaimsPrincipalExtensions.GetEmailVerified(this System.Security.Claims.ClaimsPrincipal! claimsPrincipal) -> bool
+static AGDevX.Security.ClaimsPrincipalExtensions.GetExpiration(this System.Security.Claims.ClaimsPrincipal! claimsPrincipal) -> int
+static AGDevX.Security.ClaimsPrincipalExtensions.GetExternalId(this System.Security.Claims.ClaimsPrincipal! claimsPrincipal) -> string!
+static AGDevX.Security.ClaimsPrincipalExtensions.GetFamilyName(this System.Security.Claims.ClaimsPrincipal! claimsPrincipal) -> string!
+static AGDevX.Security.ClaimsPrincipalExtensions.GetGender(this System.Security.Claims.ClaimsPrincipal! claimsPrincipal) -> string!
+static AGDevX.Security.ClaimsPrincipalExtensions.GetGivenName(this System.Security.Claims.ClaimsPrincipal! claimsPrincipal) -> string!
+static AGDevX.Security.ClaimsPrincipalExtensions.GetGrantType(this System.Security.Claims.ClaimsPrincipal! claimsPrincipal) -> string!
+static AGDevX.Security.ClaimsPrincipalExtensions.GetIsActive(this System.Security.Claims.ClaimsPrincipal! claimsPrincipal) -> bool
+static AGDevX.Security.ClaimsPrincipalExtensions.GetIssuedAt(this System.Security.Claims.ClaimsPrincipal! claimsPrincipal) -> int
+static AGDevX.Security.ClaimsPrincipalExtensions.GetIssuer(this System.Security.Claims.ClaimsPrincipal! claimsPrincipal) -> string!
+static AGDevX.Security.ClaimsPrincipalExtensions.GetJwtId(this System.Security.Claims.ClaimsPrincipal! claimsPrincipal) -> string!
+static AGDevX.Security.ClaimsPrincipalExtensions.GetLocale(this System.Security.Claims.ClaimsPrincipal! claimsPrincipal) -> string!
+static AGDevX.Security.ClaimsPrincipalExtensions.GetMiddleName(this System.Security.Claims.ClaimsPrincipal! claimsPrincipal) -> string!
+static AGDevX.Security.ClaimsPrincipalExtensions.GetName(this System.Security.Claims.ClaimsPrincipal! claimsPrincipal) -> string!
+static AGDevX.Security.ClaimsPrincipalExtensions.GetNickname(this System.Security.Claims.ClaimsPrincipal! claimsPrincipal) -> string!
+static AGDevX.Security.ClaimsPrincipalExtensions.GetNonce(this System.Security.Claims.ClaimsPrincipal! claimsPrincipal) -> string!
+static AGDevX.Security.ClaimsPrincipalExtensions.GetNotBefore(this System.Security.Claims.ClaimsPrincipal! claimsPrincipal) -> int
+static AGDevX.Security.ClaimsPrincipalExtensions.GetPhoneNumber(this System.Security.Claims.ClaimsPrincipal! claimsPrincipal) -> string!
+static AGDevX.Security.ClaimsPrincipalExtensions.GetPhoneNumberVerified(this System.Security.Claims.ClaimsPrincipal! claimsPrincipal) -> bool
+static AGDevX.Security.ClaimsPrincipalExtensions.GetPicture(this System.Security.Claims.ClaimsPrincipal! claimsPrincipal) -> string!
+static AGDevX.Security.ClaimsPrincipalExtensions.GetPreferredUsername(this System.Security.Claims.ClaimsPrincipal! claimsPrincipal) -> string!
+static AGDevX.Security.ClaimsPrincipalExtensions.GetProfile(this System.Security.Claims.ClaimsPrincipal! claimsPrincipal) -> string!
+static AGDevX.Security.ClaimsPrincipalExtensions.GetRoles(this System.Security.Claims.ClaimsPrincipal! claimsPrincipal) -> System.Collections.Generic.IReadOnlyList<string!>!
+static AGDevX.Security.ClaimsPrincipalExtensions.GetScopes(this System.Security.Claims.ClaimsPrincipal! claimsPrincipal) -> System.Collections.Generic.IReadOnlyList<string!>!
+static AGDevX.Security.ClaimsPrincipalExtensions.GetSessionId(this System.Security.Claims.ClaimsPrincipal! claimsPrincipal) -> string!
+static AGDevX.Security.ClaimsPrincipalExtensions.GetSubject(this System.Security.Claims.ClaimsPrincipal! claimsPrincipal) -> string!
+static AGDevX.Security.ClaimsPrincipalExtensions.GetUpdatedAt(this System.Security.Claims.ClaimsPrincipal! claimsPrincipal) -> int
+static AGDevX.Security.ClaimsPrincipalExtensions.GetWebsite(this System.Security.Claims.ClaimsPrincipal! claimsPrincipal) -> string!
+static AGDevX.Security.ClaimsPrincipalExtensions.GetZoneInfo(this System.Security.Claims.ClaimsPrincipal! claimsPrincipal) -> string!
+static AGDevX.Security.ClaimsPrincipalExtensions.TryGetAccessTokenHash(this System.Security.Claims.ClaimsPrincipal! claimsPrincipal) -> string?
+static AGDevX.Security.ClaimsPrincipalExtensions.TryGetAddress(this System.Security.Claims.ClaimsPrincipal! claimsPrincipal) -> System.Text.Json.JsonElement?
+static AGDevX.Security.ClaimsPrincipalExtensions.TryGetAudiences(this System.Security.Claims.ClaimsPrincipal! claimsPrincipal) -> System.Collections.Generic.IReadOnlyList<string!>?
+static AGDevX.Security.ClaimsPrincipalExtensions.TryGetAuthenticationContextClassReference(this System.Security.Claims.ClaimsPrincipal! claimsPrincipal) -> string?
+static AGDevX.Security.ClaimsPrincipalExtensions.TryGetAuthenticationMethodsReference(this System.Security.Claims.ClaimsPrincipal! claimsPrincipal) -> string?
+static AGDevX.Security.ClaimsPrincipalExtensions.TryGetAuthorizedParty(this System.Security.Claims.ClaimsPrincipal! claimsPrincipal) -> string?
+static AGDevX.Security.ClaimsPrincipalExtensions.TryGetAuthTime(this System.Security.Claims.ClaimsPrincipal! claimsPrincipal) -> int?
+static AGDevX.Security.ClaimsPrincipalExtensions.TryGetBirthdate(this System.Security.Claims.ClaimsPrincipal! claimsPrincipal) -> System.DateTime?
+static AGDevX.Security.ClaimsPrincipalExtensions.TryGetClientId(this System.Security.Claims.ClaimsPrincipal! claimsPrincipal) -> string?
+static AGDevX.Security.ClaimsPrincipalExtensions.TryGetCodeHash(this System.Security.Claims.ClaimsPrincipal! claimsPrincipal) -> string?
+static AGDevX.Security.ClaimsPrincipalExtensions.TryGetEmail(this System.Security.Claims.ClaimsPrincipal! claimsPrincipal) -> string?
+static AGDevX.Security.ClaimsPrincipalExtensions.TryGetEmailVerified(this System.Security.Claims.ClaimsPrincipal! claimsPrincipal) -> bool?
+static AGDevX.Security.ClaimsPrincipalExtensions.TryGetExpiration(this System.Security.Claims.ClaimsPrincipal! claimsPrincipal) -> int?
+static AGDevX.Security.ClaimsPrincipalExtensions.TryGetExternalId(this System.Security.Claims.ClaimsPrincipal! claimsPrincipal) -> string?
+static AGDevX.Security.ClaimsPrincipalExtensions.TryGetFamilyName(this System.Security.Claims.ClaimsPrincipal! claimsPrincipal) -> string?
+static AGDevX.Security.ClaimsPrincipalExtensions.TryGetGender(this System.Security.Claims.ClaimsPrincipal! claimsPrincipal) -> string?
+static AGDevX.Security.ClaimsPrincipalExtensions.TryGetGivenName(this System.Security.Claims.ClaimsPrincipal! claimsPrincipal) -> string?
+static AGDevX.Security.ClaimsPrincipalExtensions.TryGetGrantType(this System.Security.Claims.ClaimsPrincipal! claimsPrincipal) -> string?
+static AGDevX.Security.ClaimsPrincipalExtensions.TryGetIsActive(this System.Security.Claims.ClaimsPrincipal! claimsPrincipal) -> bool?
+static AGDevX.Security.ClaimsPrincipalExtensions.TryGetIssuedAt(this System.Security.Claims.ClaimsPrincipal! claimsPrincipal) -> int?
+static AGDevX.Security.ClaimsPrincipalExtensions.TryGetIssuer(this System.Security.Claims.ClaimsPrincipal! claimsPrincipal) -> string?
+static AGDevX.Security.ClaimsPrincipalExtensions.TryGetJwtId(this System.Security.Claims.ClaimsPrincipal! claimsPrincipal) -> string?
+static AGDevX.Security.ClaimsPrincipalExtensions.TryGetLocale(this System.Security.Claims.ClaimsPrincipal! claimsPrincipal) -> string?
+static AGDevX.Security.ClaimsPrincipalExtensions.TryGetMiddleName(this System.Security.Claims.ClaimsPrincipal! claimsPrincipal) -> string?
+static AGDevX.Security.ClaimsPrincipalExtensions.TryGetName(this System.Security.Claims.ClaimsPrincipal! claimsPrincipal) -> string?
+static AGDevX.Security.ClaimsPrincipalExtensions.TryGetNickname(this System.Security.Claims.ClaimsPrincipal! claimsPrincipal) -> string?
+static AGDevX.Security.ClaimsPrincipalExtensions.TryGetNonce(this System.Security.Claims.ClaimsPrincipal! claimsPrincipal) -> string?
+static AGDevX.Security.ClaimsPrincipalExtensions.TryGetNotBefore(this System.Security.Claims.ClaimsPrincipal! claimsPrincipal) -> int?
+static AGDevX.Security.ClaimsPrincipalExtensions.TryGetPhoneNumber(this System.Security.Claims.ClaimsPrincipal! claimsPrincipal) -> string?
+static AGDevX.Security.ClaimsPrincipalExtensions.TryGetPhoneNumberVerified(this System.Security.Claims.ClaimsPrincipal! claimsPrincipal) -> bool?
+static AGDevX.Security.ClaimsPrincipalExtensions.TryGetPicture(this System.Security.Claims.ClaimsPrincipal! claimsPrincipal) -> string?
+static AGDevX.Security.ClaimsPrincipalExtensions.TryGetPreferredUsername(this System.Security.Claims.ClaimsPrincipal! claimsPrincipal) -> string?
+static AGDevX.Security.ClaimsPrincipalExtensions.TryGetProfile(this System.Security.Claims.ClaimsPrincipal! claimsPrincipal) -> string?
+static AGDevX.Security.ClaimsPrincipalExtensions.TryGetRoles(this System.Security.Claims.ClaimsPrincipal! claimsPrincipal) -> System.Collections.Generic.IReadOnlyList<string!>?
+static AGDevX.Security.ClaimsPrincipalExtensions.TryGetScopes(this System.Security.Claims.ClaimsPrincipal! claimsPrincipal) -> System.Collections.Generic.IReadOnlyList<string!>?
+static AGDevX.Security.ClaimsPrincipalExtensions.TryGetSessionId(this System.Security.Claims.ClaimsPrincipal! claimsPrincipal) -> string?
+static AGDevX.Security.ClaimsPrincipalExtensions.TryGetSubject(this System.Security.Claims.ClaimsPrincipal! claimsPrincipal) -> string?
+static AGDevX.Security.ClaimsPrincipalExtensions.TryGetUpdatedAt(this System.Security.Claims.ClaimsPrincipal! claimsPrincipal) -> int?
+static AGDevX.Security.ClaimsPrincipalExtensions.TryGetWebsite(this System.Security.Claims.ClaimsPrincipal! claimsPrincipal) -> string?
+static AGDevX.Security.ClaimsPrincipalExtensions.TryGetZoneInfo(this System.Security.Claims.ClaimsPrincipal! claimsPrincipal) -> string?
+static AGDevX.Strings.StringExtensions.ContainsIgnoreCase(this string! string1, string! string2, System.StringComparison stringComparison = System.StringComparison.OrdinalIgnoreCase) -> bool
+static AGDevX.Strings.StringExtensions.EqualsIgnoreCase(this string! string1, string! string2, System.StringComparison stringComparison = System.StringComparison.OrdinalIgnoreCase) -> bool
+static AGDevX.Strings.StringExtensions.IsEmpty(this string! str) -> bool
+static AGDevX.Strings.StringExtensions.IsNotEmpty(this string! str) -> bool
+static AGDevX.Strings.StringExtensions.IsNotNullNorWhiteSpace(this string! str) -> bool
+static AGDevX.Strings.StringExtensions.IsNotWhiteSpace(this string! str) -> bool
+static AGDevX.Strings.StringExtensions.IsNullOrWhiteSpace(this string! str) -> bool
+static AGDevX.Strings.StringExtensions.IsWhiteSpace(this string! str) -> bool
+static AGDevX.Strings.StringExtensions.NullIfNullOrWhiteSpace(this string? str) -> string?
+static AGDevX.Strings.StringExtensions.StartsWithIgnoreCase(this string! string1, string! string2, System.StringComparison stringComparison = System.StringComparison.OrdinalIgnoreCase) -> bool
+virtual AGDevX.Exceptions.CodedApplicationException.Code.get -> string!
+virtual AGDevX.Exceptions.CodedApplicationException.Code.set -> void
+virtual AGDevX.Exceptions.CodedArgumentNullException.Code.get -> string!
+virtual AGDevX.Exceptions.CodedArgumentNullException.Code.set -> void

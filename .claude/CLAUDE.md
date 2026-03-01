@@ -17,6 +17,7 @@ A foundational C# NuGet package — extension methods, utilities, and helpers.
 - As a public NuGet package, consumers rely on IntelliSense documentation
 - Every public method, class, enum, and property must have XML docs
 
-### Zero external dependencies
-- This library depends only on the .NET runtime — no NuGet packages
-- Keep it that way unless there's a compelling reason to add one
+### Zero runtime dependencies
+- This library has no runtime NuGet dependencies — consumers get no transitive packages
+- Build-time tooling (SourceLink, analyzers) is acceptable via `PrivateAssets="All"`
+- Keep runtime dependencies at zero unless there's a compelling reason to add one
