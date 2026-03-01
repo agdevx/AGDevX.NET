@@ -15,7 +15,7 @@ public sealed class ApplicationStartupExceptionTests
             var defaultCode = "APPLICATION_STARTUP_EXCEPTION";
 
             //-- Assert
-            Assert.True(new ApplicationStartupException().Code.Equals(defaultCode));
+            Assert.Equal(defaultCode, new ApplicationStartupException().Code);
         }
 
         [Fact]
@@ -25,7 +25,7 @@ public sealed class ApplicationStartupExceptionTests
             var code = "ex";
 
             //-- Assert
-            Assert.True(new ApplicationStartupException("msg", code).Code.Equals(code));
+            Assert.Equal(code, new ApplicationStartupException("msg", code).Code);
         }
 
         [Fact]
@@ -35,7 +35,7 @@ public sealed class ApplicationStartupExceptionTests
             var message = "Test message";
 
             //-- Assert
-            Assert.True(new ApplicationStartupException(message).Message.Equals(message));
+            Assert.Equal(message, new ApplicationStartupException(message).Message);
         }
 
         [Fact]
@@ -47,8 +47,8 @@ public sealed class ApplicationStartupExceptionTests
             var innerException = new Exception(innerExceptionMessage);
 
             //-- Assert
-            Assert.True(new ApplicationStartupException(message, innerException).Message.Equals(message));
-            Assert.True(new ApplicationStartupException(message, innerException).InnerException == innerException);
+            Assert.Equal(message, new ApplicationStartupException(message, innerException).Message);
+            Assert.Same(innerException, new ApplicationStartupException(message, innerException).InnerException);
         }
 
         [Fact]
@@ -61,9 +61,9 @@ public sealed class ApplicationStartupExceptionTests
             var innerException = new Exception(innerExceptionMessage);
 
             //-- Assert
-            Assert.True(new ApplicationStartupException(message, code, innerException).Message.Equals(message));
-            Assert.True(new ApplicationStartupException(message, code, innerException).Code.Equals(code));
-            Assert.True(new ApplicationStartupException(message, code, innerException).InnerException == innerException);
+            Assert.Equal(message, new ApplicationStartupException(message, code, innerException).Message);
+            Assert.Equal(code, new ApplicationStartupException(message, code, innerException).Code);
+            Assert.Same(innerException, new ApplicationStartupException(message, code, innerException).InnerException);
         }
     }
 }

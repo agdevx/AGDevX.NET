@@ -15,7 +15,7 @@ public sealed class ExtensionMethodParameterNullExceptionTests
             var defaultCode = "EXTENSION_METHOD_PARAMETER_NULL_EXCEPTION";
 
             //-- Assert
-            Assert.True(new ExtensionMethodParameterNullException().Code.Equals(defaultCode));
+            Assert.Equal(defaultCode, new ExtensionMethodParameterNullException().Code);
         }
 
         [Fact]
@@ -25,7 +25,7 @@ public sealed class ExtensionMethodParameterNullExceptionTests
             var code = "ex";
 
             //-- Assert
-            Assert.True(new ExtensionMethodParameterNullException("msg", code).Code.Equals(code));
+            Assert.Equal(code, new ExtensionMethodParameterNullException("msg", code).Code);
         }
 
         [Fact]
@@ -36,7 +36,7 @@ public sealed class ExtensionMethodParameterNullExceptionTests
             var message = "Value cannot be null. (Parameter 'argumentName')";
 
             //-- Assert
-            Assert.True(new ExtensionMethodParameterNullException(argumentName).Message.Equals(message));
+            Assert.Equal(message, new ExtensionMethodParameterNullException(argumentName).Message);
         }
 
         [Fact]
@@ -48,8 +48,8 @@ public sealed class ExtensionMethodParameterNullExceptionTests
             var innerException = new Exception(innerExceptionMessage);
 
             //-- Assert
-            Assert.True(new ExtensionMethodParameterNullException(message, innerException).Message.Equals(message));
-            Assert.True(new ExtensionMethodParameterNullException(message, innerException).InnerException == innerException);
+            Assert.Equal(message, new ExtensionMethodParameterNullException(message, innerException).Message);
+            Assert.Same(innerException, new ExtensionMethodParameterNullException(message, innerException).InnerException);
         }
 
         [Fact]
@@ -62,9 +62,9 @@ public sealed class ExtensionMethodParameterNullExceptionTests
             var innerException = new Exception(innerExceptionMessage);
 
             //-- Assert
-            Assert.True(new ExtensionMethodParameterNullException(message, code, innerException).Message.Equals(message));
-            Assert.True(new ExtensionMethodParameterNullException(message, code, innerException).Code.Equals(code));
-            Assert.True(new ExtensionMethodParameterNullException(message, code, innerException).InnerException == innerException);
+            Assert.Equal(message, new ExtensionMethodParameterNullException(message, code, innerException).Message);
+            Assert.Equal(code, new ExtensionMethodParameterNullException(message, code, innerException).Code);
+            Assert.Same(innerException, new ExtensionMethodParameterNullException(message, code, innerException).InnerException);
         }
     }
 }
