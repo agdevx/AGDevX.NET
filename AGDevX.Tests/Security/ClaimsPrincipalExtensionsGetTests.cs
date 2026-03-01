@@ -286,6 +286,13 @@ public sealed class ClaimsPrincipalExtensionsGetTests
     public class When_calling_GetNickname
     {
         [Fact]
+        public void And_the_claim_exists_then_return_claim_value()
+        {
+            var cp = CreatePrincipal(new Claim("nickname", "auggie"));
+            Assert.Equal("auggie", cp.GetNickname());
+        }
+
+        [Fact]
         public void And_the_claim_is_missing_then_throw_ClaimNotFoundException()
         {
             Assert.Throws<ClaimNotFoundException>(() => EmptyPrincipal().GetNickname());
@@ -294,6 +301,13 @@ public sealed class ClaimsPrincipalExtensionsGetTests
 
     public class When_calling_GetPreferredUsername
     {
+        [Fact]
+        public void And_the_claim_exists_then_return_claim_value()
+        {
+            var cp = CreatePrincipal(new Claim("preferred_username", "august"));
+            Assert.Equal("august", cp.GetPreferredUsername());
+        }
+
         [Fact]
         public void And_the_claim_is_missing_then_throw_ClaimNotFoundException()
         {
@@ -304,6 +318,13 @@ public sealed class ClaimsPrincipalExtensionsGetTests
     public class When_calling_GetProfile
     {
         [Fact]
+        public void And_the_claim_exists_then_return_claim_value()
+        {
+            var cp = CreatePrincipal(new Claim("profile", "https://example.com/august"));
+            Assert.Equal("https://example.com/august", cp.GetProfile());
+        }
+
+        [Fact]
         public void And_the_claim_is_missing_then_throw_ClaimNotFoundException()
         {
             Assert.Throws<ClaimNotFoundException>(() => EmptyPrincipal().GetProfile());
@@ -313,6 +334,13 @@ public sealed class ClaimsPrincipalExtensionsGetTests
     public class When_calling_GetPicture
     {
         [Fact]
+        public void And_the_claim_exists_then_return_claim_value()
+        {
+            var cp = CreatePrincipal(new Claim("picture", "https://example.com/photo.jpg"));
+            Assert.Equal("https://example.com/photo.jpg", cp.GetPicture());
+        }
+
+        [Fact]
         public void And_the_claim_is_missing_then_throw_ClaimNotFoundException()
         {
             Assert.Throws<ClaimNotFoundException>(() => EmptyPrincipal().GetPicture());
@@ -321,6 +349,13 @@ public sealed class ClaimsPrincipalExtensionsGetTests
 
     public class When_calling_GetWebsite
     {
+        [Fact]
+        public void And_the_claim_exists_then_return_claim_value()
+        {
+            var cp = CreatePrincipal(new Claim("website", "https://example.com"));
+            Assert.Equal("https://example.com", cp.GetWebsite());
+        }
+
         [Fact]
         public void And_the_claim_is_missing_then_throw_ClaimNotFoundException()
         {
@@ -357,6 +392,13 @@ public sealed class ClaimsPrincipalExtensionsGetTests
     public class When_calling_GetEmailVerified
     {
         [Fact]
+        public void And_the_claim_exists_then_return_claim_value()
+        {
+            var cp = CreatePrincipal(new Claim("email_verified", "true"));
+            Assert.True(cp.GetEmailVerified());
+        }
+
+        [Fact]
         public void And_the_claim_is_missing_then_throw_ClaimNotFoundException()
         {
             Assert.Throws<ClaimNotFoundException>(() => EmptyPrincipal().GetEmailVerified());
@@ -365,6 +407,13 @@ public sealed class ClaimsPrincipalExtensionsGetTests
 
     public class When_calling_GetGender
     {
+        [Fact]
+        public void And_the_claim_exists_then_return_claim_value()
+        {
+            var cp = CreatePrincipal(new Claim("gender", "male"));
+            Assert.Equal("male", cp.GetGender());
+        }
+
         [Fact]
         public void And_the_claim_is_missing_then_throw_ClaimNotFoundException()
         {
@@ -397,6 +446,13 @@ public sealed class ClaimsPrincipalExtensionsGetTests
     public class When_calling_GetZoneInfo
     {
         [Fact]
+        public void And_the_claim_exists_then_return_claim_value()
+        {
+            var cp = CreatePrincipal(new Claim("zoneinfo", "America/Chicago"));
+            Assert.Equal("America/Chicago", cp.GetZoneInfo());
+        }
+
+        [Fact]
         public void And_the_claim_is_missing_then_throw_ClaimNotFoundException()
         {
             Assert.Throws<ClaimNotFoundException>(() => EmptyPrincipal().GetZoneInfo());
@@ -405,6 +461,13 @@ public sealed class ClaimsPrincipalExtensionsGetTests
 
     public class When_calling_GetLocale
     {
+        [Fact]
+        public void And_the_claim_exists_then_return_claim_value()
+        {
+            var cp = CreatePrincipal(new Claim("locale", "en-US"));
+            Assert.Equal("en-US", cp.GetLocale());
+        }
+
         [Fact]
         public void And_the_claim_is_missing_then_throw_ClaimNotFoundException()
         {
@@ -415,6 +478,13 @@ public sealed class ClaimsPrincipalExtensionsGetTests
     public class When_calling_GetPhoneNumber
     {
         [Fact]
+        public void And_the_claim_exists_then_return_claim_value()
+        {
+            var cp = CreatePrincipal(new Claim("phone_number", "+15551234567"));
+            Assert.Equal("+15551234567", cp.GetPhoneNumber());
+        }
+
+        [Fact]
         public void And_the_claim_is_missing_then_throw_ClaimNotFoundException()
         {
             Assert.Throws<ClaimNotFoundException>(() => EmptyPrincipal().GetPhoneNumber());
@@ -423,6 +493,13 @@ public sealed class ClaimsPrincipalExtensionsGetTests
 
     public class When_calling_GetPhoneNumberVerified
     {
+        [Fact]
+        public void And_the_claim_exists_then_return_claim_value()
+        {
+            var cp = CreatePrincipal(new Claim("phone_number_verified", "true"));
+            Assert.True(cp.GetPhoneNumberVerified());
+        }
+
         [Fact]
         public void And_the_claim_is_missing_then_throw_ClaimNotFoundException()
         {
@@ -456,6 +533,13 @@ public sealed class ClaimsPrincipalExtensionsGetTests
     public class When_calling_GetAuthorizedParty
     {
         [Fact]
+        public void And_the_claim_exists_then_return_claim_value()
+        {
+            var cp = CreatePrincipal(new Claim("azp", "my-client-app"));
+            Assert.Equal("my-client-app", cp.GetAuthorizedParty());
+        }
+
+        [Fact]
         public void And_the_claim_is_missing_then_throw_ClaimNotFoundException()
         {
             Assert.Throws<ClaimNotFoundException>(() => EmptyPrincipal().GetAuthorizedParty());
@@ -464,6 +548,13 @@ public sealed class ClaimsPrincipalExtensionsGetTests
 
     public class When_calling_GetNonce
     {
+        [Fact]
+        public void And_the_claim_exists_then_return_claim_value()
+        {
+            var cp = CreatePrincipal(new Claim("nonce", "nonce123"));
+            Assert.Equal("nonce123", cp.GetNonce());
+        }
+
         [Fact]
         public void And_the_claim_is_missing_then_throw_ClaimNotFoundException()
         {
@@ -474,6 +565,13 @@ public sealed class ClaimsPrincipalExtensionsGetTests
     public class When_calling_GetAccessTokenHash
     {
         [Fact]
+        public void And_the_claim_exists_then_return_claim_value()
+        {
+            var cp = CreatePrincipal(new Claim("at_hash", "hash123"));
+            Assert.Equal("hash123", cp.GetAccessTokenHash());
+        }
+
+        [Fact]
         public void And_the_claim_is_missing_then_throw_ClaimNotFoundException()
         {
             Assert.Throws<ClaimNotFoundException>(() => EmptyPrincipal().GetAccessTokenHash());
@@ -482,6 +580,13 @@ public sealed class ClaimsPrincipalExtensionsGetTests
 
     public class When_calling_GetCodeHash
     {
+        [Fact]
+        public void And_the_claim_exists_then_return_claim_value()
+        {
+            var cp = CreatePrincipal(new Claim("c_hash", "codehash456"));
+            Assert.Equal("codehash456", cp.GetCodeHash());
+        }
+
         [Fact]
         public void And_the_claim_is_missing_then_throw_ClaimNotFoundException()
         {
@@ -492,6 +597,13 @@ public sealed class ClaimsPrincipalExtensionsGetTests
     public class When_calling_GetAuthenticationContextClassReference
     {
         [Fact]
+        public void And_the_claim_exists_then_return_claim_value()
+        {
+            var cp = CreatePrincipal(new Claim("acr", "urn:mace:incommon:iap:silver"));
+            Assert.Equal("urn:mace:incommon:iap:silver", cp.GetAuthenticationContextClassReference());
+        }
+
+        [Fact]
         public void And_the_claim_is_missing_then_throw_ClaimNotFoundException()
         {
             Assert.Throws<ClaimNotFoundException>(() => EmptyPrincipal().GetAuthenticationContextClassReference());
@@ -500,6 +612,13 @@ public sealed class ClaimsPrincipalExtensionsGetTests
 
     public class When_calling_GetAuthenticationMethodsReference
     {
+        [Fact]
+        public void And_the_claim_exists_then_return_claim_value()
+        {
+            var cp = CreatePrincipal(new Claim("amr", "mfa"));
+            Assert.Equal("mfa", cp.GetAuthenticationMethodsReference());
+        }
+
         [Fact]
         public void And_the_claim_is_missing_then_throw_ClaimNotFoundException()
         {
@@ -510,6 +629,13 @@ public sealed class ClaimsPrincipalExtensionsGetTests
     public class When_calling_GetSessionId
     {
         [Fact]
+        public void And_the_claim_exists_then_return_claim_value()
+        {
+            var cp = CreatePrincipal(new Claim("sid", "session-abc"));
+            Assert.Equal("session-abc", cp.GetSessionId());
+        }
+
+        [Fact]
         public void And_the_claim_is_missing_then_throw_ClaimNotFoundException()
         {
             Assert.Throws<ClaimNotFoundException>(() => EmptyPrincipal().GetSessionId());
@@ -518,6 +644,13 @@ public sealed class ClaimsPrincipalExtensionsGetTests
 
     public class When_calling_GetClientId
     {
+        [Fact]
+        public void And_the_claim_exists_then_return_claim_value()
+        {
+            var cp = CreatePrincipal(new Claim("client_id", "my-client"));
+            Assert.Equal("my-client", cp.GetClientId());
+        }
+
         [Fact]
         public void And_the_claim_is_missing_then_throw_ClaimNotFoundException()
         {
