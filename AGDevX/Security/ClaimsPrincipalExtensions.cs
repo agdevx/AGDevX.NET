@@ -62,18 +62,18 @@ public static class ClaimsPrincipalExtensions
     #region Audience
 
     /// <summary>
-    /// Returns the Audience claim values as a list. Throws <see cref="ClaimNotFoundException"/> if the claim is missing.
+    /// Returns the Audience claim values as a read-only list. Throws <see cref="ClaimNotFoundException"/> if the claim is missing.
     /// </summary>
-    public static List<string> GetAudiences(this ClaimsPrincipal claimsPrincipal)
+    public static IReadOnlyList<string> GetAudiences(this ClaimsPrincipal claimsPrincipal)
     {
         return claimsPrincipal.TryGetAudiences()
                     ?? throw new ClaimNotFoundException("An Audience claim was not found");
     }
 
     /// <summary>
-    /// Returns the Audience claim values as a list, or <see langword="null"/> if the claim is missing.
+    /// Returns the Audience claim values as a read-only list, or <see langword="null"/> if the claim is missing.
     /// </summary>
-    public static List<string>? TryGetAudiences(this ClaimsPrincipal claimsPrincipal)
+    public static IReadOnlyList<string>? TryGetAudiences(this ClaimsPrincipal claimsPrincipal)
     {
         return claimsPrincipal.GetClaimValues<string>(JwtClaimType.Audience.StringValue());
     }
@@ -771,18 +771,18 @@ public static class ClaimsPrincipalExtensions
     #region Scope
 
     /// <summary>
-    /// Returns the Scope claim values as a list. Throws <see cref="ClaimNotFoundException"/> if the claim is missing.
+    /// Returns the Scope claim values as a read-only list. Throws <see cref="ClaimNotFoundException"/> if the claim is missing.
     /// </summary>
-    public static List<string> GetScopes(this ClaimsPrincipal claimsPrincipal)
+    public static IReadOnlyList<string> GetScopes(this ClaimsPrincipal claimsPrincipal)
     {
         return claimsPrincipal.TryGetScopes()
                     ?? throw new ClaimNotFoundException("A Scope claim was not found");
     }
 
     /// <summary>
-    /// Returns the Scope claim values as a list, or <see langword="null"/> if the claim is missing.
+    /// Returns the Scope claim values as a read-only list, or <see langword="null"/> if the claim is missing.
     /// </summary>
-    public static List<string>? TryGetScopes(this ClaimsPrincipal claimsPrincipal)
+    public static IReadOnlyList<string>? TryGetScopes(this ClaimsPrincipal claimsPrincipal)
     {
         var scopeStr = claimsPrincipal.GetClaimValue<string>(JwtClaimType.Scope.StringValue());
         return scopeStr?.Split(' ').ToList();
@@ -814,18 +814,18 @@ public static class ClaimsPrincipalExtensions
     #region Roles
 
     /// <summary>
-    /// Returns the Roles claim values as a list. Throws <see cref="ClaimNotFoundException"/> if the claim is missing.
+    /// Returns the Roles claim values as a read-only list. Throws <see cref="ClaimNotFoundException"/> if the claim is missing.
     /// </summary>
-    public static List<string> GetRoles(this ClaimsPrincipal claimsPrincipal)
+    public static IReadOnlyList<string> GetRoles(this ClaimsPrincipal claimsPrincipal)
     {
         return claimsPrincipal.TryGetRoles()
                     ?? throw new ClaimNotFoundException("A Roles claim was not found");
     }
 
     /// <summary>
-    /// Returns the Roles claim values as a list, or <see langword="null"/> if the claim is missing.
+    /// Returns the Roles claim values as a read-only list, or <see langword="null"/> if the claim is missing.
     /// </summary>
-    public static List<string>? TryGetRoles(this ClaimsPrincipal claimsPrincipal)
+    public static IReadOnlyList<string>? TryGetRoles(this ClaimsPrincipal claimsPrincipal)
     {
         var rolesStr = claimsPrincipal.GetClaimValue<string>(JwtClaimType.Roles.StringValue());
         return rolesStr?.Split(' ').ToList();
