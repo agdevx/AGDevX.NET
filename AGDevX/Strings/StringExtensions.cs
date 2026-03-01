@@ -14,7 +14,7 @@ public static class StringExtensions
     /// <param name="string2">String 2 to compare to string 1 (required)</param>
     /// <param name="stringComparison">StringComparison to use when comparing the strings (required)</param>
     /// <returns>True if the two strings are equal ignoring the case. Otherwise, false.</returns>
-    public static bool EqualsIgnoreCase(this string string1, [AllowNull] string string2, StringComparison stringComparison = StringComparison.OrdinalIgnoreCase)
+    public static bool EqualsIgnoreCase(this string string1, string string2, StringComparison stringComparison = StringComparison.OrdinalIgnoreCase)
     {
         if (string2 == null)
         {
@@ -31,7 +31,7 @@ public static class StringExtensions
     /// <param name="string2">String 2 used to compare to string 1 (required)</param>
     /// <param name="stringComparison">StringComparison to use when comparing the strings (required)</param>
     /// <returns>True if string 1 starts with string 2 ignoring case. Otherwise, false.</returns>
-    public static bool StartsWithIgnoreCase(this string string1, [AllowNull] string string2, StringComparison stringComparison = StringComparison.OrdinalIgnoreCase)
+    public static bool StartsWithIgnoreCase(this string string1, string string2, StringComparison stringComparison = StringComparison.OrdinalIgnoreCase)
     {
         if (string2 == null)
         {
@@ -48,7 +48,7 @@ public static class StringExtensions
     /// <param name="string2">String 2 to determine if it is contained in string 1 (required)</param>
     /// <param name="stringComparison">StringComparison to use when comparing the strings (required)</param>
     /// <returns>True if string 1 contains string 2 ignoring case. Otherwise, false.</returns>
-    public static bool ContainsIgnoreCase(this string string1, [AllowNull] string string2, StringComparison stringComparison = StringComparison.OrdinalIgnoreCase)
+    public static bool ContainsIgnoreCase(this string string1, string string2, StringComparison stringComparison = StringComparison.OrdinalIgnoreCase)
     {
         if (string2 == null)
         {
@@ -85,7 +85,7 @@ public static class StringExtensions
     /// <returns>True if the string only consists of whitespace. Otherwise, false.</returns>
     public static bool IsWhiteSpace([NotNullWhen(true)] this string str)
     {
-        return str != string.Empty && str.All(s => s == ' ');
+        return str != string.Empty && str.All(char.IsWhiteSpace);
     }
 
     /// <summary>
@@ -95,7 +95,7 @@ public static class StringExtensions
     /// <returns>True if a string contains at least one character that is not whitespace. Otherwise, false.</returns>
     public static bool IsNotWhiteSpace([MaybeNullWhen(true)] this string str)
     {
-        return str == string.Empty || !str.All(s => s == ' ');
+        return str == string.Empty || !str.All(char.IsWhiteSpace);
     }
 
     /// <summary>

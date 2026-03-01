@@ -15,7 +15,7 @@ public sealed class NotAuthorizedExceptionTests
             var defaultCode = "NOT_AUTHORIZED_EXCEPTION";
 
             //-- Assert
-            Assert.True(new NotAuthorizedException().Code.Equals(defaultCode));
+            Assert.Equal(defaultCode, new NotAuthorizedException().Code);
         }
 
         [Fact]
@@ -25,7 +25,7 @@ public sealed class NotAuthorizedExceptionTests
             var code = "ex";
 
             //-- Assert
-            Assert.True(new NotAuthorizedException("msg", code).Code.Equals(code));
+            Assert.Equal(code, new NotAuthorizedException("msg", code).Code);
         }
 
         [Fact]
@@ -35,7 +35,7 @@ public sealed class NotAuthorizedExceptionTests
             var message = "Test message";
 
             //-- Assert
-            Assert.True(new NotAuthorizedException(message).Message.Equals(message));
+            Assert.Equal(message, new NotAuthorizedException(message).Message);
         }
 
         [Fact]
@@ -47,8 +47,8 @@ public sealed class NotAuthorizedExceptionTests
             var innerException = new Exception(innerExceptionMessage);
 
             //-- Assert
-            Assert.True(new NotAuthorizedException(message, innerException).Message.Equals(message));
-            Assert.True(new NotAuthorizedException(message, innerException).InnerException == innerException);
+            Assert.Equal(message, new NotAuthorizedException(message, innerException).Message);
+            Assert.Same(innerException, new NotAuthorizedException(message, innerException).InnerException);
         }
 
         [Fact]
@@ -61,9 +61,9 @@ public sealed class NotAuthorizedExceptionTests
             var innerException = new Exception(innerExceptionMessage);
 
             //-- Assert
-            Assert.True(new NotAuthorizedException(message, code, innerException).Message.Equals(message));
-            Assert.True(new NotAuthorizedException(message, code, innerException).Code.Equals(code));
-            Assert.True(new NotAuthorizedException(message, code, innerException).InnerException == innerException);
+            Assert.Equal(message, new NotAuthorizedException(message, code, innerException).Message);
+            Assert.Equal(code, new NotAuthorizedException(message, code, innerException).Code);
+            Assert.Same(innerException, new NotAuthorizedException(message, code, innerException).InnerException);
         }
     }
 }

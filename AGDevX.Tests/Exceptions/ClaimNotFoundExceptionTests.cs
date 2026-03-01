@@ -15,7 +15,7 @@ public sealed class ClaimNotFoundExceptionTests
             var defaultCode = "CLAIM_NOT_FOUND_EXCEPTION";
 
             //-- Assert
-            Assert.True(new ClaimNotFoundException().Code.Equals(defaultCode));
+            Assert.Equal(defaultCode, new ClaimNotFoundException().Code);
         }
 
         [Fact]
@@ -25,7 +25,7 @@ public sealed class ClaimNotFoundExceptionTests
             var code = "ex";
 
             //-- Assert
-            Assert.True(new ClaimNotFoundException("msg", code).Code.Equals(code));
+            Assert.Equal(code, new ClaimNotFoundException("msg", code).Code);
         }
 
         [Fact]
@@ -35,7 +35,7 @@ public sealed class ClaimNotFoundExceptionTests
             var message = "Test message";
 
             //-- Assert
-            Assert.True(new ClaimNotFoundException(message).Message.Equals(message));
+            Assert.Equal(message, new ClaimNotFoundException(message).Message);
         }
 
         [Fact]
@@ -47,8 +47,8 @@ public sealed class ClaimNotFoundExceptionTests
             var innerException = new Exception(innerExceptionMessage);
 
             //-- Assert
-            Assert.True(new ClaimNotFoundException(message, innerException).Message.Equals(message));
-            Assert.True(new ClaimNotFoundException(message, innerException).InnerException == innerException);
+            Assert.Equal(message, new ClaimNotFoundException(message, innerException).Message);
+            Assert.Same(innerException, new ClaimNotFoundException(message, innerException).InnerException);
         }
 
         [Fact]
@@ -61,9 +61,9 @@ public sealed class ClaimNotFoundExceptionTests
             var innerException = new Exception(innerExceptionMessage);
 
             //-- Assert
-            Assert.True(new ClaimNotFoundException(message, code, innerException).Message.Equals(message));
-            Assert.True(new ClaimNotFoundException(message, code, innerException).Code.Equals(code));
-            Assert.True(new ClaimNotFoundException(message, code, innerException).InnerException == innerException);
+            Assert.Equal(message, new ClaimNotFoundException(message, code, innerException).Message);
+            Assert.Equal(code, new ClaimNotFoundException(message, code, innerException).Code);
+            Assert.Same(innerException, new ClaimNotFoundException(message, code, innerException).InnerException);
         }
     }
 }

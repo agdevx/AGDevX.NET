@@ -15,7 +15,7 @@ public sealed class CodedApplicationExceptionTests
             var defaultCode = "CODED_APPLICATION_EXCEPTION";
 
             //-- Assert
-            Assert.True(new CodedApplicationException().Code.Equals(defaultCode));
+            Assert.Equal(defaultCode, new CodedApplicationException().Code);
         }
 
         [Fact]
@@ -25,7 +25,7 @@ public sealed class CodedApplicationExceptionTests
             var code = "ex";
 
             //-- Assert
-            Assert.True(new CodedApplicationException("msg", code).Code.Equals(code));
+            Assert.Equal(code, new CodedApplicationException("msg", code).Code);
         }
 
         [Fact]
@@ -35,7 +35,7 @@ public sealed class CodedApplicationExceptionTests
             var message = "Test message";
 
             //-- Assert
-            Assert.True(new CodedApplicationException(message).Message.Equals(message));
+            Assert.Equal(message, new CodedApplicationException(message).Message);
         }
 
         [Fact]
@@ -47,8 +47,8 @@ public sealed class CodedApplicationExceptionTests
             var innerException = new Exception(innerExceptionMessage);
 
             //-- Assert
-            Assert.True(new CodedApplicationException(message, innerException).Message.Equals(message));
-            Assert.True(new CodedApplicationException(message, innerException).InnerException == innerException);
+            Assert.Equal(message, new CodedApplicationException(message, innerException).Message);
+            Assert.Same(innerException, new CodedApplicationException(message, innerException).InnerException);
         }
 
         [Fact]
@@ -61,9 +61,9 @@ public sealed class CodedApplicationExceptionTests
             var innerException = new Exception(innerExceptionMessage);
 
             //-- Assert
-            Assert.True(new CodedApplicationException(message, code, innerException).Message.Equals(message));
-            Assert.True(new CodedApplicationException(message, code, innerException).Code.Equals(code));
-            Assert.True(new CodedApplicationException(message, code, innerException).InnerException == innerException);
+            Assert.Equal(message, new CodedApplicationException(message, code, innerException).Message);
+            Assert.Equal(code, new CodedApplicationException(message, code, innerException).Code);
+            Assert.Same(innerException, new CodedApplicationException(message, code, innerException).InnerException);
         }
     }
 }

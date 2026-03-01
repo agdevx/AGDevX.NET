@@ -101,7 +101,65 @@ Information relevant to a developer that has been extracted from an execption an
 
 ### ClaimsPrincipal Extensions
 
-Extensions for pulling Claims out of a ClaimsPrincipal
+Extensions for pulling Claims out of a ClaimsPrincipal. Each claim has a `Get` variant (throws `ClaimNotFoundException` if missing) and a `TryGet` variant (returns null if missing).
+
+#### Standard JWT Claims
+
+- `GetIssuer` / `TryGetIssuer`: Returns the Issuer (iss) claim value
+- `GetSubject` / `TryGetSubject`: Returns the Subject (sub) claim value
+- `GetAudiences` / `TryGetAudiences`: Returns the Audience (aud) claim values as a list
+- `GetExpiration` / `TryGetExpiration`: Returns the Expiration (exp) claim value as an integer
+- `GetNotBefore` / `TryGetNotBefore`: Returns the NotBefore (nbf) claim value as an integer
+- `GetIssuedAt` / `TryGetIssuedAt`: Returns the IssuedAt (iat) claim value as an integer
+- `GetJwtId` / `TryGetJwtId`: Returns the JWT ID (jti) claim value
+
+#### OpenID Connect Profile Claims
+
+- `GetName` / `TryGetName`: Returns the Name claim value
+- `GetGivenName` / `TryGetGivenName`: Returns the Given Name claim value
+- `GetFamilyName` / `TryGetFamilyName`: Returns the Family Name claim value
+- `GetMiddleName` / `TryGetMiddleName`: Returns the Middle Name claim value
+- `GetNickname` / `TryGetNickname`: Returns the Nickname claim value
+- `GetPreferredUsername` / `TryGetPreferredUsername`: Returns the Preferred Username claim value
+- `GetProfile` / `TryGetProfile`: Returns the Profile claim value
+- `GetPicture` / `TryGetPicture`: Returns the Picture claim value
+- `GetWebsite` / `TryGetWebsite`: Returns the Website claim value
+- `GetGender` / `TryGetGender`: Returns the Gender claim value
+- `GetBirthdate` / `TryGetBirthdate`: Returns the Birthdate claim value as a DateTime
+- `GetZoneInfo` / `TryGetZoneInfo`: Returns the ZoneInfo claim value
+- `GetLocale` / `TryGetLocale`: Returns the Locale claim value
+- `GetUpdatedAt` / `TryGetUpdatedAt`: Returns the UpdatedAt claim value as an integer
+
+#### OpenID Connect Contact Claims
+
+- `GetEmail` / `TryGetEmail`: Returns the Email claim value
+- `GetEmailVerified` / `TryGetEmailVerified`: Returns the EmailVerified claim value as a boolean
+- `GetPhoneNumber` / `TryGetPhoneNumber`: Returns the PhoneNumber claim value
+- `GetPhoneNumberVerified` / `TryGetPhoneNumberVerified`: Returns the PhoneNumberVerified claim value as a boolean
+- `GetAddress` / `TryGetAddress`: Returns the Address claim value as a JsonElement
+
+#### OpenID Connect Authentication Claims
+
+- `GetAuthorizedParty` / `TryGetAuthorizedParty`: Returns the Authorized Party (azp) claim value
+- `GetNonce` / `TryGetNonce`: Returns the Nonce claim value
+- `GetAuthTime` / `TryGetAuthTime`: Returns the Auth Time claim value as an integer
+- `GetAccessTokenHash` / `TryGetAccessTokenHash`: Returns the Access Token Hash (at_hash) claim value
+- `GetCodeHash` / `TryGetCodeHash`: Returns the Code Hash (c_hash) claim value
+- `GetAuthenticationContextClassReference` / `TryGetAuthenticationContextClassReference`: Returns the Authentication Context Class Reference (acr) claim value
+- `GetAuthenticationMethodsReference` / `TryGetAuthenticationMethodsReference`: Returns the Authentication Methods Reference (amr) claim value
+- `GetSessionId` / `TryGetSessionId`: Returns the Session ID (sid) claim value
+
+#### OAuth 2.0 Claims
+
+- `GetScopes` / `TryGetScopes`: Returns the Scope claim values as a list
+- `GetClientId` / `TryGetClientId`: Returns the Client ID claim value
+- `GetRoles` / `TryGetRoles`: Returns the Roles claim values as a list
+
+#### Custom / Provider-Specific Claims
+
+- `GetExternalId` / `TryGetExternalId`: Returns an external identifier (tries Subject, then UserId)
+- `GetIsActive` / `TryGetIsActive`: Returns the IsActive claim value as a boolean
+- `GetGrantType` / `TryGetGrantType`: Returns the Grant Type claim value (Auth0-specific)
 
 ## Strings
 
@@ -118,6 +176,3 @@ Extensions for pulling Claims out of a ClaimsPrincipal
 - `IsNotEmpty`: Determines if a string is not empty
 - `NullIfNullOrWhiteSpace`: Returns null if the string is null or whitespace. Otherwise, returns the string.
 
-# Tech Debt
-
-- Document all `ClaimsPrincipal` extensions (there are many)
