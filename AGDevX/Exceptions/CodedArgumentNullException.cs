@@ -8,10 +8,19 @@ namespace AGDevX.Exceptions;
 /// </summary>
 public class CodedArgumentNullException : ArgumentNullException
 {
+    private readonly string? _argumentName;
+
     /// <summary>
     /// A code providing additional context into the origin of the exception.
     /// </summary>
     public virtual string Code { get; set; } = "CODED_ARGUMENT_NULL_EXCEPTION";
+
+    /// <summary>
+    /// Gets the name of the argument that caused the exception.
+    /// Overridden to preserve the argument name when constructed with an inner exception,
+    /// because ArgumentNullException lacks a constructor accepting both paramName and innerException.
+    /// </summary>
+    public override string? ParamName => _argumentName ?? base.ParamName;
 
     /// <summary>
     /// Initializes a new instance of the <see cref="CodedArgumentNullException"/> class with the default code.
@@ -55,6 +64,7 @@ public class CodedArgumentNullException : ArgumentNullException
     /// <param name="innerException">The exception that is the cause of the current exception.</param>
     public CodedArgumentNullException(string argumentName, string code, Exception innerException) : base(argumentName, innerException)
     {
+        _argumentName = argumentName;
         Code = code;
     }
 }
