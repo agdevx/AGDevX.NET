@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Globalization;
 using System.Linq;
 using System.Security.Claims;
+using System.Text.Json;
 using AGDevX.Enums;
 using AGDevX.Exceptions;
 using AGDevX.IEnumerables;
@@ -314,17 +315,25 @@ public static class ClaimsPrincipalExtensions
 
     #region Birthdate
 
-    public static string GetBirthdate(this ClaimsPrincipal claimsPrincipal)
+    /// <summary>
+    /// Returns the Birthdate claim value parsed as a <see cref="DateTime"/>.
+    /// Throws <see cref="ClaimNotFoundException"/> if the claim is missing or cannot be parsed.
+    /// </summary>
+    public static DateTime GetBirthdate(this ClaimsPrincipal claimsPrincipal)
     {
-        //-- TODO: Parse into DateTime or return null
         return claimsPrincipal.TryGetBirthdate()
                     ?? throw new ClaimNotFoundException($"A Birthdate claim was not found");
     }
 
-    public static string? TryGetBirthdate(this ClaimsPrincipal claimsPrincipal)
+    /// <summary>
+    /// Returns the Birthdate claim value parsed as a <see cref="DateTime"/>,
+    /// or <see langword="null"/> if the claim is missing or the value cannot be parsed.
+    /// </summary>
+    public static DateTime? TryGetBirthdate(this ClaimsPrincipal claimsPrincipal)
     {
-        //-- TODO: Parse into DateTime or return null
-        return claimsPrincipal.GetClaimValue<string>(JwtClaimType.Birthdate.StringValue());
+        var value = claimsPrincipal.GetClaimValue<string>(JwtClaimType.Birthdate.StringValue());
+        if (value == null) return null;
+        return DateTime.TryParse(value, CultureInfo.InvariantCulture, DateTimeStyles.None, out var date) ? date : null;
     }
 
     #endregion
@@ -393,17 +402,32 @@ public static class ClaimsPrincipalExtensions
 
     #region Address
 
-    public static string GetAddress(this ClaimsPrincipal claimsPrincipal)
+    /// <summary>
+    /// Returns the Address claim value parsed as a <see cref="JsonElement"/>.
+    /// Throws <see cref="ClaimNotFoundException"/> if the claim is missing or the value is not valid JSON.
+    /// </summary>
+    public static JsonElement GetAddress(this ClaimsPrincipal claimsPrincipal)
     {
-        //-- TODO: Deserialize into an object from JSON
         return claimsPrincipal.TryGetAddress()
                     ?? throw new ClaimNotFoundException($"An Address claim was not found");
     }
 
-    public static string? TryGetAddress(this ClaimsPrincipal claimsPrincipal)
+    /// <summary>
+    /// Returns the Address claim value parsed as a <see cref="JsonElement"/>,
+    /// or <see langword="null"/> if the claim is missing or the value is not valid JSON.
+    /// </summary>
+    public static JsonElement? TryGetAddress(this ClaimsPrincipal claimsPrincipal)
     {
-        //-- TODO: Deserialize into an object from JSON
-        return claimsPrincipal.GetClaimValue<string>(JwtClaimType.Address.StringValue());
+        var value = claimsPrincipal.GetClaimValue<string>(JwtClaimType.Address.StringValue());
+        if (value == null) return null;
+        try
+        {
+            return JsonDocument.Parse(value).RootElement;
+        }
+        catch (JsonException)
+        {
+            return null;
+        }
     }
 
     #endregion
