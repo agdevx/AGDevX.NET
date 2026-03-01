@@ -18,6 +18,8 @@ indent_size = 2
 indent_size = 2
 
 [*.cs]
+insert_final_newline = false
+
 # Namespace preferences
 csharp_style_namespace_declarations = file_scoped:warning
 
