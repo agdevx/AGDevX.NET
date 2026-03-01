@@ -18,12 +18,18 @@ public static class ClaimsPrincipalExtensions
 {
     #region Issuer
 
+    /// <summary>
+    /// Returns the Issuer claim value. Throws <see cref="ClaimNotFoundException"/> if the claim is missing.
+    /// </summary>
     public static string GetIssuer(this ClaimsPrincipal claimsPrincipal)
     {
         return claimsPrincipal.TryGetIssuer()
                     ?? throw new ClaimNotFoundException("An Issuer claim was not found");
     }
 
+    /// <summary>
+    /// Returns the Issuer claim value, or <see langword="null"/> if the claim is missing.
+    /// </summary>
     public static string? TryGetIssuer(this ClaimsPrincipal claimsPrincipal)
     {
         return claimsPrincipal.GetClaimValue<string>(JwtClaimType.Issuer.StringValue());
@@ -33,12 +39,18 @@ public static class ClaimsPrincipalExtensions
 
     #region Subject
 
+    /// <summary>
+    /// Returns the Subject claim value. Throws <see cref="ClaimNotFoundException"/> if the claim is missing.
+    /// </summary>
     public static string GetSubject(this ClaimsPrincipal claimsPrincipal)
     {
         return claimsPrincipal.TryGetSubject()
                     ?? throw new ClaimNotFoundException("A Subject claim was not found");
     }
 
+    /// <summary>
+    /// Returns the Subject claim value, or <see langword="null"/> if the claim is missing.
+    /// </summary>
     public static string? TryGetSubject(this ClaimsPrincipal claimsPrincipal)
     {
         return claimsPrincipal.GetClaimValue<string>(JwtClaimType.Subject.StringValue())
@@ -49,12 +61,18 @@ public static class ClaimsPrincipalExtensions
 
     #region Audience
 
+    /// <summary>
+    /// Returns the Audience claim values as a list. Throws <see cref="ClaimNotFoundException"/> if the claim is missing.
+    /// </summary>
     public static List<string> GetAudiences(this ClaimsPrincipal claimsPrincipal)
     {
         return claimsPrincipal.TryGetAudiences()
                     ?? throw new ClaimNotFoundException("An Audience claim was not found");
     }
 
+    /// <summary>
+    /// Returns the Audience claim values as a list, or <see langword="null"/> if the claim is missing.
+    /// </summary>
     public static List<string>? TryGetAudiences(this ClaimsPrincipal claimsPrincipal)
     {
         return claimsPrincipal.GetClaimValues<string>(JwtClaimType.Audience.StringValue());
@@ -64,12 +82,18 @@ public static class ClaimsPrincipalExtensions
 
     #region Expiration
 
+    /// <summary>
+    /// Returns the Expiration claim value as an integer. Throws <see cref="ClaimNotFoundException"/> if the claim is missing.
+    /// </summary>
     public static int GetExpiration(this ClaimsPrincipal claimsPrincipal)
     {
         return claimsPrincipal.TryGetExpiration()
                     ?? throw new ClaimNotFoundException("An Expiration claim was not found");
     }
 
+    /// <summary>
+    /// Returns the Expiration claim value as an integer, or <see langword="null"/> if the claim is missing.
+    /// </summary>
     public static int? TryGetExpiration(this ClaimsPrincipal claimsPrincipal)
     {
         var claim = claimsPrincipal.GetClaim(JwtClaimType.Expiration.StringValue());
@@ -81,12 +105,18 @@ public static class ClaimsPrincipalExtensions
 
     #region NotBefore
 
+    /// <summary>
+    /// Returns the NotBefore claim value as an integer. Throws <see cref="ClaimNotFoundException"/> if the claim is missing.
+    /// </summary>
     public static int GetNotBefore(this ClaimsPrincipal claimsPrincipal)
     {
         return claimsPrincipal.TryGetNotBefore()
                     ?? throw new ClaimNotFoundException("A NotBefore claim was not found");
     }
 
+    /// <summary>
+    /// Returns the NotBefore claim value as an integer, or <see langword="null"/> if the claim is missing.
+    /// </summary>
     public static int? TryGetNotBefore(this ClaimsPrincipal claimsPrincipal)
     {
         var claim = claimsPrincipal.GetClaim(JwtClaimType.NotBefore.StringValue());
@@ -98,12 +128,18 @@ public static class ClaimsPrincipalExtensions
 
     #region IssuedAt
 
+    /// <summary>
+    /// Returns the IssuedAt claim value as an integer. Throws <see cref="ClaimNotFoundException"/> if the claim is missing.
+    /// </summary>
     public static int GetIssuedAt(this ClaimsPrincipal claimsPrincipal)
     {
         return claimsPrincipal.TryGetIssuedAt()
                     ?? throw new ClaimNotFoundException("An IssuedAt claim was not found");
     }
 
+    /// <summary>
+    /// Returns the IssuedAt claim value as an integer, or <see langword="null"/> if the claim is missing.
+    /// </summary>
     public static int? TryGetIssuedAt(this ClaimsPrincipal claimsPrincipal)
     {
         var claim = claimsPrincipal.GetClaim(JwtClaimType.IssuedAt.StringValue());
@@ -115,12 +151,18 @@ public static class ClaimsPrincipalExtensions
 
     #region JwtId
 
+    /// <summary>
+    /// Returns the JwtId claim value. Throws <see cref="ClaimNotFoundException"/> if the claim is missing.
+    /// </summary>
     public static string GetJwtId(this ClaimsPrincipal claimsPrincipal)
     {
         return claimsPrincipal.TryGetJwtId()
                     ?? throw new ClaimNotFoundException("A JwtId claim was not found");
     }
 
+    /// <summary>
+    /// Returns the JwtId claim value, or <see langword="null"/> if the claim is missing.
+    /// </summary>
     public static string? TryGetJwtId(this ClaimsPrincipal claimsPrincipal)
     {
         return claimsPrincipal.GetClaimValue<string>(JwtClaimType.JwtId.StringValue());
@@ -130,12 +172,18 @@ public static class ClaimsPrincipalExtensions
 
     #region Name
 
+    /// <summary>
+    /// Returns the Name claim value. Throws <see cref="ClaimNotFoundException"/> if the claim is missing.
+    /// </summary>
     public static string GetName(this ClaimsPrincipal claimsPrincipal)
     {
         return claimsPrincipal.TryGetName()
                     ?? throw new ClaimNotFoundException("A Name claim was not found");
     }
 
+    /// <summary>
+    /// Returns the Name claim value, or <see langword="null"/> if the claim is missing.
+    /// </summary>
     public static string? TryGetName(this ClaimsPrincipal claimsPrincipal)
     {
         return claimsPrincipal.GetClaimValue<string>(JwtClaimType.Name.StringValue());
@@ -145,12 +193,18 @@ public static class ClaimsPrincipalExtensions
 
     #region GivenName
 
+    /// <summary>
+    /// Returns the GivenName claim value. Throws <see cref="ClaimNotFoundException"/> if the claim is missing.
+    /// </summary>
     public static string GetGivenName(this ClaimsPrincipal claimsPrincipal)
     {
         return claimsPrincipal.TryGetGivenName()
                     ?? throw new ClaimNotFoundException("A Given Name claim was not found");
     }
 
+    /// <summary>
+    /// Returns the GivenName claim value, or <see langword="null"/> if the claim is missing.
+    /// </summary>
     public static string? TryGetGivenName(this ClaimsPrincipal claimsPrincipal)
     {
         return claimsPrincipal.GetClaimValue<string>(JwtClaimType.GivenName.StringValue())
@@ -161,12 +215,18 @@ public static class ClaimsPrincipalExtensions
 
     #region FamilyName
 
+    /// <summary>
+    /// Returns the FamilyName claim value. Throws <see cref="ClaimNotFoundException"/> if the claim is missing.
+    /// </summary>
     public static string GetFamilyName(this ClaimsPrincipal claimsPrincipal)
     {
         return claimsPrincipal.TryGetFamilyName()
                     ?? throw new ClaimNotFoundException("A Family Name claim was not found");
     }
 
+    /// <summary>
+    /// Returns the FamilyName claim value, or <see langword="null"/> if the claim is missing.
+    /// </summary>
     public static string? TryGetFamilyName(this ClaimsPrincipal claimsPrincipal)
     {
         return claimsPrincipal.GetClaimValue<string>(JwtClaimType.FamilyName.StringValue())
@@ -177,12 +237,18 @@ public static class ClaimsPrincipalExtensions
 
     #region MiddleName
 
+    /// <summary>
+    /// Returns the MiddleName claim value. Throws <see cref="ClaimNotFoundException"/> if the claim is missing.
+    /// </summary>
     public static string GetMiddleName(this ClaimsPrincipal claimsPrincipal)
     {
         return claimsPrincipal.TryGetMiddleName()
                     ?? throw new ClaimNotFoundException("A Middle Name claim was not found");
     }
 
+    /// <summary>
+    /// Returns the MiddleName claim value, or <see langword="null"/> if the claim is missing.
+    /// </summary>
     public static string? TryGetMiddleName(this ClaimsPrincipal claimsPrincipal)
     {
         return claimsPrincipal.GetClaimValue<string>(JwtClaimType.MiddleName.StringValue());
@@ -192,12 +258,18 @@ public static class ClaimsPrincipalExtensions
 
     #region Nickname
 
+    /// <summary>
+    /// Returns the Nickname claim value. Throws <see cref="ClaimNotFoundException"/> if the claim is missing.
+    /// </summary>
     public static string GetNickname(this ClaimsPrincipal claimsPrincipal)
     {
         return claimsPrincipal.TryGetNickname()
                     ?? throw new ClaimNotFoundException("A Nickname claim was not found");
     }
 
+    /// <summary>
+    /// Returns the Nickname claim value, or <see langword="null"/> if the claim is missing.
+    /// </summary>
     public static string? TryGetNickname(this ClaimsPrincipal claimsPrincipal)
     {
         return claimsPrincipal.GetClaimValue<string>(JwtClaimType.Nickname.StringValue());
@@ -207,12 +279,18 @@ public static class ClaimsPrincipalExtensions
 
     #region PreferredUsername
 
+    /// <summary>
+    /// Returns the PreferredUsername claim value. Throws <see cref="ClaimNotFoundException"/> if the claim is missing.
+    /// </summary>
     public static string GetPreferredUsername(this ClaimsPrincipal claimsPrincipal)
     {
         return claimsPrincipal.TryGetPreferredUsername()
                     ?? throw new ClaimNotFoundException("A Preferred Username claim was not found");
     }
 
+    /// <summary>
+    /// Returns the PreferredUsername claim value, or <see langword="null"/> if the claim is missing.
+    /// </summary>
     public static string? TryGetPreferredUsername(this ClaimsPrincipal claimsPrincipal)
     {
         return claimsPrincipal.GetClaimValue<string>(JwtClaimType.PreferredUsername.StringValue());
@@ -222,12 +300,18 @@ public static class ClaimsPrincipalExtensions
 
     #region Profile
 
+    /// <summary>
+    /// Returns the Profile claim value. Throws <see cref="ClaimNotFoundException"/> if the claim is missing.
+    /// </summary>
     public static string GetProfile(this ClaimsPrincipal claimsPrincipal)
     {
         return claimsPrincipal.TryGetProfile()
                     ?? throw new ClaimNotFoundException("A Profile claim was not found");
     }
 
+    /// <summary>
+    /// Returns the Profile claim value, or <see langword="null"/> if the claim is missing.
+    /// </summary>
     public static string? TryGetProfile(this ClaimsPrincipal claimsPrincipal)
     {
         return claimsPrincipal.GetClaimValue<string>(JwtClaimType.Profile.StringValue());
@@ -237,12 +321,18 @@ public static class ClaimsPrincipalExtensions
 
     #region Picture
 
+    /// <summary>
+    /// Returns the Picture claim value. Throws <see cref="ClaimNotFoundException"/> if the claim is missing.
+    /// </summary>
     public static string GetPicture(this ClaimsPrincipal claimsPrincipal)
     {
         return claimsPrincipal.TryGetPicture()
                     ?? throw new ClaimNotFoundException("A Picture claim was not found");
     }
 
+    /// <summary>
+    /// Returns the Picture claim value, or <see langword="null"/> if the claim is missing.
+    /// </summary>
     public static string? TryGetPicture(this ClaimsPrincipal claimsPrincipal)
     {
         return claimsPrincipal.GetClaimValue<string>(JwtClaimType.Picture.StringValue());
@@ -252,12 +342,18 @@ public static class ClaimsPrincipalExtensions
 
     #region Website
 
+    /// <summary>
+    /// Returns the Website claim value. Throws <see cref="ClaimNotFoundException"/> if the claim is missing.
+    /// </summary>
     public static string GetWebsite(this ClaimsPrincipal claimsPrincipal)
     {
         return claimsPrincipal.TryGetWebsite()
                     ?? throw new ClaimNotFoundException("A Website claim was not found");
     }
 
+    /// <summary>
+    /// Returns the Website claim value, or <see langword="null"/> if the claim is missing.
+    /// </summary>
     public static string? TryGetWebsite(this ClaimsPrincipal claimsPrincipal)
     {
         return claimsPrincipal.GetClaimValue<string>(JwtClaimType.Website.StringValue());
@@ -267,12 +363,18 @@ public static class ClaimsPrincipalExtensions
 
     #region Email
 
+    /// <summary>
+    /// Returns the Email claim value. Throws <see cref="ClaimNotFoundException"/> if the claim is missing.
+    /// </summary>
     public static string GetEmail(this ClaimsPrincipal claimsPrincipal)
     {
         return claimsPrincipal.TryGetEmail()
                     ?? throw new ClaimNotFoundException("An Email claim was not found");
     }
 
+    /// <summary>
+    /// Returns the Email claim value, or <see langword="null"/> if the claim is missing.
+    /// </summary>
     public static string? TryGetEmail(this ClaimsPrincipal claimsPrincipal)
     {
         return claimsPrincipal.GetClaimValue<string>(JwtClaimType.Email.StringValue())
@@ -283,12 +385,18 @@ public static class ClaimsPrincipalExtensions
 
     #region EmailVerified
 
+    /// <summary>
+    /// Returns the EmailVerified claim value as a boolean. Throws <see cref="ClaimNotFoundException"/> if the claim is missing.
+    /// </summary>
     public static bool GetEmailVerified(this ClaimsPrincipal claimsPrincipal)
     {
         return claimsPrincipal.TryGetEmailVerified()
                     ?? throw new ClaimNotFoundException("An EmailVerified claim was not found");
     }
 
+    /// <summary>
+    /// Returns the EmailVerified claim value as a boolean, or <see langword="null"/> if the claim is missing.
+    /// </summary>
     public static bool? TryGetEmailVerified(this ClaimsPrincipal claimsPrincipal)
     {
         var claim = claimsPrincipal.GetClaim(JwtClaimType.EmailVerified.StringValue());
@@ -300,12 +408,18 @@ public static class ClaimsPrincipalExtensions
 
     #region Gender
 
+    /// <summary>
+    /// Returns the Gender claim value. Throws <see cref="ClaimNotFoundException"/> if the claim is missing.
+    /// </summary>
     public static string GetGender(this ClaimsPrincipal claimsPrincipal)
     {
         return claimsPrincipal.TryGetGender()
                     ?? throw new ClaimNotFoundException("A Gender claim was not found");
     }
 
+    /// <summary>
+    /// Returns the Gender claim value, or <see langword="null"/> if the claim is missing.
+    /// </summary>
     public static string? TryGetGender(this ClaimsPrincipal claimsPrincipal)
     {
         return claimsPrincipal.GetClaimValue<string>(JwtClaimType.Gender.StringValue());
@@ -340,12 +454,18 @@ public static class ClaimsPrincipalExtensions
 
     #region ZoneInfo
 
+    /// <summary>
+    /// Returns the ZoneInfo claim value. Throws <see cref="ClaimNotFoundException"/> if the claim is missing.
+    /// </summary>
     public static string GetZoneInfo(this ClaimsPrincipal claimsPrincipal)
     {
         return claimsPrincipal.TryGetZoneInfo()
                     ?? throw new ClaimNotFoundException("A ZoneInfo claim was not found");
     }
 
+    /// <summary>
+    /// Returns the ZoneInfo claim value, or <see langword="null"/> if the claim is missing.
+    /// </summary>
     public static string? TryGetZoneInfo(this ClaimsPrincipal claimsPrincipal)
     {
         return claimsPrincipal.GetClaimValue<string>(JwtClaimType.ZoneInfo.StringValue());
@@ -355,12 +475,18 @@ public static class ClaimsPrincipalExtensions
 
     #region Locale
 
+    /// <summary>
+    /// Returns the Locale claim value. Throws <see cref="ClaimNotFoundException"/> if the claim is missing.
+    /// </summary>
     public static string GetLocale(this ClaimsPrincipal claimsPrincipal)
     {
         return claimsPrincipal.TryGetLocale()
                     ?? throw new ClaimNotFoundException("A Locale claim was not found");
     }
 
+    /// <summary>
+    /// Returns the Locale claim value, or <see langword="null"/> if the claim is missing.
+    /// </summary>
     public static string? TryGetLocale(this ClaimsPrincipal claimsPrincipal)
     {
         return claimsPrincipal.GetClaimValue<string>(JwtClaimType.Locale.StringValue());
@@ -370,12 +496,18 @@ public static class ClaimsPrincipalExtensions
 
     #region PhoneNumber
 
+    /// <summary>
+    /// Returns the PhoneNumber claim value. Throws <see cref="ClaimNotFoundException"/> if the claim is missing.
+    /// </summary>
     public static string GetPhoneNumber(this ClaimsPrincipal claimsPrincipal)
     {
         return claimsPrincipal.TryGetPhoneNumber()
                     ?? throw new ClaimNotFoundException("A PhoneNumber claim was not found");
     }
 
+    /// <summary>
+    /// Returns the PhoneNumber claim value, or <see langword="null"/> if the claim is missing.
+    /// </summary>
     public static string? TryGetPhoneNumber(this ClaimsPrincipal claimsPrincipal)
     {
         return claimsPrincipal.GetClaimValue<string>(JwtClaimType.PhoneNumber.StringValue());
@@ -385,12 +517,18 @@ public static class ClaimsPrincipalExtensions
 
     #region PhoneNumberVerified
 
+    /// <summary>
+    /// Returns the PhoneNumberVerified claim value as a boolean. Throws <see cref="ClaimNotFoundException"/> if the claim is missing.
+    /// </summary>
     public static bool GetPhoneNumberVerified(this ClaimsPrincipal claimsPrincipal)
     {
         return claimsPrincipal.TryGetPhoneNumberVerified()
                     ?? throw new ClaimNotFoundException("A PhoneNumberVerified claim was not found");
     }
 
+    /// <summary>
+    /// Returns the PhoneNumberVerified claim value as a boolean, or <see langword="null"/> if the claim is missing.
+    /// </summary>
     public static bool? TryGetPhoneNumberVerified(this ClaimsPrincipal claimsPrincipal)
     {
         var claim = claimsPrincipal.GetClaim(JwtClaimType.PhoneNumberVerified.StringValue());
@@ -439,12 +577,18 @@ public static class ClaimsPrincipalExtensions
 
     #region UpdatedAt
 
+    /// <summary>
+    /// Returns the UpdatedAt claim value as an integer. Throws <see cref="ClaimNotFoundException"/> if the claim is missing.
+    /// </summary>
     public static int GetUpdatedAt(this ClaimsPrincipal claimsPrincipal)
     {
         return claimsPrincipal.TryGetUpdatedAt()
                     ?? throw new ClaimNotFoundException("An UpdatedAt claim was not found");
     }
 
+    /// <summary>
+    /// Returns the UpdatedAt claim value as an integer, or <see langword="null"/> if the claim is missing.
+    /// </summary>
     public static int? TryGetUpdatedAt(this ClaimsPrincipal claimsPrincipal)
     {
         var claim = claimsPrincipal.GetClaim(JwtClaimType.UpdatedAt.StringValue());
@@ -456,12 +600,18 @@ public static class ClaimsPrincipalExtensions
 
     #region AuthorizedParty
 
+    /// <summary>
+    /// Returns the AuthorizedParty claim value. Throws <see cref="ClaimNotFoundException"/> if the claim is missing.
+    /// </summary>
     public static string GetAuthorizedParty(this ClaimsPrincipal claimsPrincipal)
     {
         return claimsPrincipal.TryGetAuthorizedParty()
                     ?? throw new ClaimNotFoundException("An AuthorizedParty claim was not found");
     }
 
+    /// <summary>
+    /// Returns the AuthorizedParty claim value, or <see langword="null"/> if the claim is missing.
+    /// </summary>
     public static string? TryGetAuthorizedParty(this ClaimsPrincipal claimsPrincipal)
     {
         return claimsPrincipal.GetClaimValue<string>(JwtClaimType.AuthorizedParty.StringValue());
@@ -471,12 +621,18 @@ public static class ClaimsPrincipalExtensions
 
     #region Nonce
 
+    /// <summary>
+    /// Returns the Nonce claim value. Throws <see cref="ClaimNotFoundException"/> if the claim is missing.
+    /// </summary>
     public static string GetNonce(this ClaimsPrincipal claimsPrincipal)
     {
         return claimsPrincipal.TryGetNonce()
                     ?? throw new ClaimNotFoundException("A Nonce claim was not found");
     }
 
+    /// <summary>
+    /// Returns the Nonce claim value, or <see langword="null"/> if the claim is missing.
+    /// </summary>
     public static string? TryGetNonce(this ClaimsPrincipal claimsPrincipal)
     {
         return claimsPrincipal.GetClaimValue<string>(JwtClaimType.Nonce.StringValue());
@@ -486,12 +642,18 @@ public static class ClaimsPrincipalExtensions
 
     #region AuthTime
 
+    /// <summary>
+    /// Returns the AuthTime claim value as an integer. Throws <see cref="ClaimNotFoundException"/> if the claim is missing.
+    /// </summary>
     public static int GetAuthTime(this ClaimsPrincipal claimsPrincipal)
     {
         return claimsPrincipal.TryGetAuthTime()
                     ?? throw new ClaimNotFoundException("An AuthTime claim was not found");
     }
 
+    /// <summary>
+    /// Returns the AuthTime claim value as an integer, or <see langword="null"/> if the claim is missing.
+    /// </summary>
     public static int? TryGetAuthTime(this ClaimsPrincipal claimsPrincipal)
     {
         var claim = claimsPrincipal.GetClaim(JwtClaimType.AuthTime.StringValue());
@@ -503,12 +665,18 @@ public static class ClaimsPrincipalExtensions
 
     #region AccessTokenHash
 
+    /// <summary>
+    /// Returns the AccessTokenHash claim value. Throws <see cref="ClaimNotFoundException"/> if the claim is missing.
+    /// </summary>
     public static string GetAccessTokenHash(this ClaimsPrincipal claimsPrincipal)
     {
         return claimsPrincipal.TryGetAccessTokenHash()
                     ?? throw new ClaimNotFoundException("An AccessTokenHash claim was not found");
     }
 
+    /// <summary>
+    /// Returns the AccessTokenHash claim value, or <see langword="null"/> if the claim is missing.
+    /// </summary>
     public static string? TryGetAccessTokenHash(this ClaimsPrincipal claimsPrincipal)
     {
         return claimsPrincipal.GetClaimValue<string>(JwtClaimType.AccessTokenHash.StringValue());
@@ -518,12 +686,18 @@ public static class ClaimsPrincipalExtensions
 
     #region CodeHash
 
+    /// <summary>
+    /// Returns the CodeHash claim value. Throws <see cref="ClaimNotFoundException"/> if the claim is missing.
+    /// </summary>
     public static string GetCodeHash(this ClaimsPrincipal claimsPrincipal)
     {
         return claimsPrincipal.TryGetCodeHash()
                     ?? throw new ClaimNotFoundException("A CodeHash claim was not found");
     }
 
+    /// <summary>
+    /// Returns the CodeHash claim value, or <see langword="null"/> if the claim is missing.
+    /// </summary>
     public static string? TryGetCodeHash(this ClaimsPrincipal claimsPrincipal)
     {
         return claimsPrincipal.GetClaimValue<string>(JwtClaimType.CodeHash.StringValue());
@@ -533,12 +707,18 @@ public static class ClaimsPrincipalExtensions
 
     #region AuthenticationContextClassReference
 
+    /// <summary>
+    /// Returns the AuthenticationContextClassReference claim value. Throws <see cref="ClaimNotFoundException"/> if the claim is missing.
+    /// </summary>
     public static string GetAuthenticationContextClassReference(this ClaimsPrincipal claimsPrincipal)
     {
         return claimsPrincipal.TryGetAuthenticationContextClassReference()
                     ?? throw new ClaimNotFoundException("An AuthenticationContextClassReference claim was not found");
     }
 
+    /// <summary>
+    /// Returns the AuthenticationContextClassReference claim value, or <see langword="null"/> if the claim is missing.
+    /// </summary>
     public static string? TryGetAuthenticationContextClassReference(this ClaimsPrincipal claimsPrincipal)
     {
         return claimsPrincipal.GetClaimValue<string>(JwtClaimType.AuthenticationContextClassReference.StringValue());
@@ -548,12 +728,18 @@ public static class ClaimsPrincipalExtensions
 
     #region AuthenticationMethodsReference
 
+    /// <summary>
+    /// Returns the AuthenticationMethodsReference claim value. Throws <see cref="ClaimNotFoundException"/> if the claim is missing.
+    /// </summary>
     public static string GetAuthenticationMethodsReference(this ClaimsPrincipal claimsPrincipal)
     {
         return claimsPrincipal.TryGetAuthenticationMethodsReference()
                     ?? throw new ClaimNotFoundException("An AuthenticationMethodsReference claim was not found");
     }
 
+    /// <summary>
+    /// Returns the AuthenticationMethodsReference claim value, or <see langword="null"/> if the claim is missing.
+    /// </summary>
     public static string? TryGetAuthenticationMethodsReference(this ClaimsPrincipal claimsPrincipal)
     {
         return claimsPrincipal.GetClaimValue<string>(JwtClaimType.AuthenticationMethodsReference.StringValue());
@@ -563,12 +749,18 @@ public static class ClaimsPrincipalExtensions
 
     #region SessionId
 
+    /// <summary>
+    /// Returns the SessionId claim value. Throws <see cref="ClaimNotFoundException"/> if the claim is missing.
+    /// </summary>
     public static string GetSessionId(this ClaimsPrincipal claimsPrincipal)
     {
         return claimsPrincipal.TryGetSessionId()
                     ?? throw new ClaimNotFoundException("A SessionId claim was not found");
     }
 
+    /// <summary>
+    /// Returns the SessionId claim value, or <see langword="null"/> if the claim is missing.
+    /// </summary>
     public static string? TryGetSessionId(this ClaimsPrincipal claimsPrincipal)
     {
         return claimsPrincipal.GetClaimValue<string>(JwtClaimType.SessionId.StringValue());
@@ -578,12 +770,18 @@ public static class ClaimsPrincipalExtensions
 
     #region Scope
 
+    /// <summary>
+    /// Returns the Scope claim values as a list. Throws <see cref="ClaimNotFoundException"/> if the claim is missing.
+    /// </summary>
     public static List<string> GetScopes(this ClaimsPrincipal claimsPrincipal)
     {
         return claimsPrincipal.TryGetScopes()
                     ?? throw new ClaimNotFoundException("A Scope claim was not found");
     }
 
+    /// <summary>
+    /// Returns the Scope claim values as a list, or <see langword="null"/> if the claim is missing.
+    /// </summary>
     public static List<string>? TryGetScopes(this ClaimsPrincipal claimsPrincipal)
     {
         var scopeStr = claimsPrincipal.GetClaimValue<string>(JwtClaimType.Scope.StringValue());
@@ -594,12 +792,18 @@ public static class ClaimsPrincipalExtensions
 
     #region ClientId
 
+    /// <summary>
+    /// Returns the ClientId claim value. Throws <see cref="ClaimNotFoundException"/> if the claim is missing.
+    /// </summary>
     public static string GetClientId(this ClaimsPrincipal claimsPrincipal)
     {
         return claimsPrincipal.TryGetClientId()
                     ?? throw new ClaimNotFoundException("A ClientId claim was not found");
     }
 
+    /// <summary>
+    /// Returns the ClientId claim value, or <see langword="null"/> if the claim is missing.
+    /// </summary>
     public static string? TryGetClientId(this ClaimsPrincipal claimsPrincipal)
     {
         return claimsPrincipal.GetClaimValue<string>(JwtClaimType.ClientId.StringValue());
@@ -609,12 +813,18 @@ public static class ClaimsPrincipalExtensions
 
     #region Roles
 
+    /// <summary>
+    /// Returns the Roles claim values as a list. Throws <see cref="ClaimNotFoundException"/> if the claim is missing.
+    /// </summary>
     public static List<string> GetRoles(this ClaimsPrincipal claimsPrincipal)
     {
         return claimsPrincipal.TryGetRoles()
                     ?? throw new ClaimNotFoundException("A Roles claim was not found");
     }
 
+    /// <summary>
+    /// Returns the Roles claim values as a list, or <see langword="null"/> if the claim is missing.
+    /// </summary>
     public static List<string>? TryGetRoles(this ClaimsPrincipal claimsPrincipal)
     {
         var rolesStr = claimsPrincipal.GetClaimValue<string>(JwtClaimType.Roles.StringValue());
@@ -625,12 +835,18 @@ public static class ClaimsPrincipalExtensions
 
     #region ExternalId
 
+    /// <summary>
+    /// Returns the ExternalId claim value. Throws <see cref="ClaimNotFoundException"/> if the claim is missing.
+    /// </summary>
     public static string GetExternalId(this ClaimsPrincipal claimsPrincipal)
     {
         return claimsPrincipal.TryGetExternalId()
                     ?? throw new ClaimNotFoundException("An External Id claim was not found");
     }
 
+    /// <summary>
+    /// Returns the ExternalId claim value, or <see langword="null"/> if the claim is missing.
+    /// </summary>
     public static string? TryGetExternalId(this ClaimsPrincipal claimsPrincipal)
     {
         return claimsPrincipal.TryGetSubject()
@@ -641,12 +857,18 @@ public static class ClaimsPrincipalExtensions
 
     #region IsActive
 
+    /// <summary>
+    /// Returns the IsActive claim value as a boolean. Throws <see cref="ClaimNotFoundException"/> if the claim is missing.
+    /// </summary>
     public static bool GetIsActive(this ClaimsPrincipal claimsPrincipal)
     {
         return claimsPrincipal.TryGetIsActive()
                     ?? throw new ClaimNotFoundException("An IsActive claim was not found");
     }
 
+    /// <summary>
+    /// Returns the IsActive claim value as a boolean, or <see langword="null"/> if the claim is missing.
+    /// </summary>
     public static bool? TryGetIsActive(this ClaimsPrincipal claimsPrincipal)
     {
         var claim = claimsPrincipal.GetClaim(CustomClaimType.IsActive.StringValue());
@@ -658,12 +880,18 @@ public static class ClaimsPrincipalExtensions
 
     #region GrantType
 
+    /// <summary>
+    /// Returns the GrantType claim value. Throws <see cref="ClaimNotFoundException"/> if the claim is missing.
+    /// </summary>
     public static string GetGrantType(this ClaimsPrincipal claimsPrincipal)
     {
         return claimsPrincipal.TryGetGrantType()
                     ?? throw new ClaimNotFoundException("A Grant Type claim was not found");
     }
 
+    /// <summary>
+    /// Returns the GrantType claim value, or <see langword="null"/> if the claim is missing.
+    /// </summary>
     public static string? TryGetGrantType(this ClaimsPrincipal claimsPrincipal)
     {
         return claimsPrincipal.GetClaimValue<string>(Auth0ClaimType.GrantType.StringValue());
