@@ -140,13 +140,13 @@ public class StringExtensionsTests
         [Theory]
         [InlineData(null)]
         [InlineData("   ")]
-        public void And_the_string_is_null_or_whitespace_then_return_true(string str1)
+        public void And_the_string_is_null_or_whitespace_then_return_true(string str)
         {
             //-- Arrange
             //-- <see InlineData>
 
             //-- Act
-            var result = str1.IsNullOrWhiteSpace();
+            var result = str.IsNullOrWhiteSpace();
 
             //-- Assert
             Assert.True(result);
@@ -154,13 +154,13 @@ public class StringExtensionsTests
 
         [Theory]
         [InlineData("something")]
-        public void And_the_string_is_not_null_or_whitespace_then_return_false(string str1)
+        public void And_the_string_is_not_null_or_whitespace_then_return_false(string str)
         {
             //-- Arrange
             //-- <see InlineData>
 
             //-- Act
-            var result = str1.IsNullOrWhiteSpace();
+            var result = str.IsNullOrWhiteSpace();
 
             //-- Assert
             Assert.False(result);
@@ -171,13 +171,13 @@ public class StringExtensionsTests
     {
         [Theory]
         [InlineData("something")]
-        public void And_the_string_is_not_null_or_whitespace_then_return_true(string str1)
+        public void And_the_string_is_not_null_or_whitespace_then_return_true(string str)
         {
             //-- Arrange
             //-- <see InlineData>
 
             //-- Act
-            var result = str1.IsNotNullNorWhiteSpace();
+            var result = str.IsNotNullNorWhiteSpace();
 
             //-- Assert
             Assert.True(result);
@@ -186,13 +186,13 @@ public class StringExtensionsTests
         [Theory]
         [InlineData(null)]
         [InlineData("   ")]
-        public void And_the_string_null_or_whitespace_then_return_false(string str1)
+        public void And_the_string_null_or_whitespace_then_return_false(string str)
         {
             //-- Arrange
             //-- <see InlineData>
 
             //-- Act
-            var result = str1.IsNotNullNorWhiteSpace();
+            var result = str.IsNotNullNorWhiteSpace();
 
             //-- Assert
             Assert.False(result);
@@ -204,13 +204,13 @@ public class StringExtensionsTests
         [Theory]
         [InlineData(" ")]
         [InlineData("        ")]
-        public void And_the_string_is_whitespace_then_return_true(string str1)
+        public void And_the_string_is_whitespace_then_return_true(string str)
         {
             //-- Arrange
             //-- <see InlineData>
 
             //-- Act
-            var result = str1.IsWhiteSpace();
+            var result = str.IsWhiteSpace();
 
             //-- Assert
             Assert.True(result);
@@ -223,13 +223,13 @@ public class StringExtensionsTests
         [InlineData("c ")]
         [InlineData(" d ")]
         [InlineData(" . ")]
-        public void And_the_string_is_not_whitespace_then_return_false(string str1)
+        public void And_the_string_is_not_whitespace_then_return_false(string str)
         {
             //-- Arrange
             //-- <see InlineData>
 
             //-- Act
-            var result = str1.IsWhiteSpace();
+            var result = str.IsWhiteSpace();
 
             //-- Assert
             Assert.False(result);
@@ -245,13 +245,13 @@ public class StringExtensionsTests
         [InlineData("c ")]
         [InlineData(" d ")]
         [InlineData(" . ")]
-        public void And_the_string_is_null_or_not_whitespace_then_return_true(string str1)
+        public void And_the_string_is_null_or_not_whitespace_then_return_true(string str)
         {
             //-- Arrange
             //-- <see InlineData>
 
             //-- Act
-            var result = str1.IsNotWhiteSpace();
+            var result = str.IsNotWhiteSpace();
 
             //-- Assert
             Assert.True(result);
@@ -260,13 +260,13 @@ public class StringExtensionsTests
         [Theory]
         [InlineData(" ")]
         [InlineData("        ")]
-        public void And_the_string_is_whitespace_only_then_return_false(string str1)
+        public void And_the_string_is_whitespace_only_then_return_false(string str)
         {
             //-- Arrange
             //-- <see InlineData>
 
             //-- Act
-            var result = str1.IsNotWhiteSpace();
+            var result = str.IsNotWhiteSpace();
 
             //-- Assert
             Assert.False(result);
@@ -277,13 +277,13 @@ public class StringExtensionsTests
     {
         [Theory]
         [InlineData("")]
-        public void And_the_string_is_empty_only_then_return_true(string str1)
+        public void And_the_string_is_empty_only_then_return_true(string str)
         {
             //-- Arrange
             //-- <see InlineData>
 
             //-- Act
-            var result = str1.IsEmpty();
+            var result = str.IsEmpty();
 
             //-- Assert
             Assert.True(result);
@@ -298,13 +298,13 @@ public class StringExtensionsTests
         [InlineData(" . ")]
         [InlineData(" ")]
         [InlineData("      ")]
-        public void And_the_string_is_null_or_whitespace_or_has_non_whitespace_value_then_return_false(string str1)
+        public void And_the_string_is_null_or_whitespace_or_has_non_whitespace_value_then_return_false(string str)
         {
             //-- Arrange
             //-- <see InlineData>
 
             //-- Act
-            var result = str1.IsEmpty();
+            var result = str.IsEmpty();
 
             //-- Assert
             Assert.False(result);
@@ -322,13 +322,13 @@ public class StringExtensionsTests
         [InlineData(" . ")]
         [InlineData(" ")]
         [InlineData("      ")]
-        public void And_the_string_is_null_or_whitespace_or_has_non_whitespace_value_then_return_true(string str1)
+        public void And_the_string_is_null_or_whitespace_or_has_non_whitespace_value_then_return_true(string str)
         {
             //-- Arrange
             //-- <see InlineData>
 
             //-- Act
-            var result = str1.IsNotEmpty();
+            var result = str.IsNotEmpty();
 
             //-- Assert
             Assert.True(result);
@@ -336,16 +336,53 @@ public class StringExtensionsTests
 
         [Theory]
         [InlineData("")]
-        public void And_the_string_is_empty_only_then_return_false(string str1)
+        public void And_the_string_is_empty_only_then_return_false(string str)
         {
             //-- Arrange
             //-- <see InlineData>
 
             //-- Act
-            var result = str1.IsNotEmpty();
+            var result = str.IsNotEmpty();
 
             //-- Assert
             Assert.False(result);
+        }
+    }
+
+    public class When_calling_NullIfNullOrWhiteSpace
+    {
+        [Theory]
+        [InlineData(null)]
+        [InlineData("")]
+        [InlineData("      ")]
+        public void And_the_string_is_null_or_whitespace_or_empty_then_return_null(string? str)
+        {
+            //-- Arrange
+            //-- <see InlineData>
+
+            //-- Act
+            var result = str.NullIfNullOrWhiteSpace();
+
+            //-- Assert
+            Assert.Null(result);
+        }
+
+        [Theory]
+        [InlineData("a")]
+        [InlineData(" b")]
+        [InlineData("c ")]
+        [InlineData(" d ")]
+        [InlineData(" . ")]
+        public void And_the_string_is_not_null_nor_whitespace_nor_empty_then_return_string(string str)
+        {
+            //-- Arrange
+            //-- <see InlineData>
+
+            //-- Act
+            var result = str.NullIfNullOrWhiteSpace();
+
+            //-- Assert
+            Assert.Equal(str, result);
         }
     }
 }

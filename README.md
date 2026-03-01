@@ -116,6 +116,7 @@ Extensions for pulling Claims out of a ClaimsPrincipal
 - `IsNotWhiteSpace`: Determines if a string contains at least one character that is not whitespace
 - `IsEmpty`: Determines if a string is empty
 - `IsNotEmpty`: Determines if a string is not empty
+- `NullIfNullOrWhiteSpace`: Returns null if the string is null or whitespace. Otherwise, returns the string.
 
 # Tech Debt
 
