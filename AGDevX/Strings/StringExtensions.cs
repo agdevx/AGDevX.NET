@@ -85,7 +85,7 @@ public static class StringExtensions
     /// <returns>True if the string only consists of whitespace. Otherwise, false.</returns>
     public static bool IsWhiteSpace([NotNullWhen(true)] this string str)
     {
-        return str != string.Empty && str.All(s => s == ' ');
+        return str != string.Empty && str.All(char.IsWhiteSpace);
     }
 
     /// <summary>
@@ -95,7 +95,7 @@ public static class StringExtensions
     /// <returns>True if a string contains at least one character that is not whitespace. Otherwise, false.</returns>
     public static bool IsNotWhiteSpace([MaybeNullWhen(true)] this string str)
     {
-        return str == string.Empty || !str.All(s => s == ' ');
+        return str == string.Empty || !str.All(char.IsWhiteSpace);
     }
 
     /// <summary>

@@ -204,6 +204,9 @@ public class StringExtensionsTests
         [Theory]
         [InlineData(" ")]
         [InlineData("        ")]
+        [InlineData("\t")]
+        [InlineData("\n")]
+        [InlineData("\t \n")]
         public void And_the_string_is_whitespace_then_return_true(string str)
         {
             //-- Arrange
@@ -260,6 +263,9 @@ public class StringExtensionsTests
         [Theory]
         [InlineData(" ")]
         [InlineData("        ")]
+        [InlineData("\t")]
+        [InlineData("\n")]
+        [InlineData("\t \n")]
         public void And_the_string_is_whitespace_only_then_return_false(string str)
         {
             //-- Arrange
