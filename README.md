@@ -120,5 +120,4 @@ Extensions for pulling Claims out of a ClaimsPrincipal
 
 # Tech Debt
 
-- Unit tests to cover all `ClaimsPrincipal` extensions (there are many)
 - Document all `ClaimsPrincipal` extensions (there are many)
