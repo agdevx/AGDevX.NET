@@ -145,6 +145,7 @@ override AGDevX.Exceptions.ApplicationStartupException.Code.get -> string!
 override AGDevX.Exceptions.ApplicationStartupException.Code.set -> void
 override AGDevX.Exceptions.ClaimNotFoundException.Code.get -> string!
 override AGDevX.Exceptions.ClaimNotFoundException.Code.set -> void
+override AGDevX.Exceptions.CodedArgumentNullException.ParamName.get -> string?
 override AGDevX.Exceptions.ExtensionMethodException.Code.get -> string!
 override AGDevX.Exceptions.ExtensionMethodException.Code.set -> void
 override AGDevX.Exceptions.ExtensionMethodParameterNullException.Code.get -> string!
