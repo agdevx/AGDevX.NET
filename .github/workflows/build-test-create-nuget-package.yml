@@ -44,7 +44,26 @@ jobs:
         run: dotnet build ${{ env.SOLUTION_PATH }} --configuration ${{ env.CONFIGURATION }} --no-restore
 
       - name: Run Unit Tests
-        run: dotnet test --no-build --verbosity normal
+        run: dotnet test --no-build --verbosity normal --collect:"XPlat Code Coverage" --results-directory ./coverage
+
+      - name: Check Code Coverage Threshold
+        if: matrix.os == 'ubuntu-latest'
+        shell: bash
+        run: |
+          COVERAGE_FILE=$(find ./coverage -name "coverage.cobertura.xml" | head -1)
+          if [ -z "$COVERAGE_FILE" ]; then
+            echo "::error::No coverage file found"
+            exit 1
+          fi
+          LINE_RATE=$(grep -oP 'line-rate="\K[^"]+' "$COVERAGE_FILE" | head -1)
+          COVERAGE_PCT=$(echo "$LINE_RATE * 100" | bc -l | xargs printf "%.1f")
+          echo "Line coverage: ${COVERAGE_PCT}%"
+          THRESHOLD=80
+          if (( $(echo "$COVERAGE_PCT < $THRESHOLD" | bc -l) )); then
+            echo "::error::Code coverage ${COVERAGE_PCT}% is below ${THRESHOLD}% threshold"
+            exit 1
+          fi
+          echo "Coverage ${COVERAGE_PCT}% meets ${THRESHOLD}% threshold"
 
       #- name: Get version
       #  id: version
