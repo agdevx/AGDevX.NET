@@ -4,6 +4,9 @@ name: Build, Test, Create NuGet Package
 
 on:
   pull_request:
+  push:
+    branches:
+      - main
   #push:
   #  tags:
   #    - 'v*'
@@ -30,7 +33,9 @@ jobs:
       - name: Set up .NET
         uses: actions/setup-dotnet@v4
         with:
-          dotnet-version: 10.0.x
+          dotnet-version: |
+            8.0.x
+            10.0.x
 
       - name: Restore dependencies
         run: dotnet restore ${{ env.SOLUTION_PATH }}
