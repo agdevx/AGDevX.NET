@@ -149,5 +149,34 @@ public sealed class ExceptionDetailTests
                 }
             }
         }
+
+        public class And_called_on_a_plain_Exception
+        {
+            [Fact]
+            public void Then_return_exception_detail_with_provided_code()
+            {
+                //-- Arrange
+                var code = "CUSTOM_CODE";
+                var message = "Something went wrong";
+                var exception = new InvalidOperationException(message);
+
+                //-- Act
+                ExceptionDetail exceptionDetail;
+                try
+                {
+                    throw exception;
+                }
+                catch (Exception ex)
+                {
+                    exceptionDetail = ex.GetExceptionDetail(code);
+                }
+
+                //-- Assert
+                Assert.Equal(code, exceptionDetail.Code);
+                Assert.Equal(message, exceptionDetail.Message);
+                Assert.NotNull(exceptionDetail.StackFrames);
+                Assert.Null(exceptionDetail.InnerException);
+            }
+        }
     }
 }
