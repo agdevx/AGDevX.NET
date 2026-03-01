@@ -1,5 +1,7 @@
+using System;
 using System.Collections.Generic;
 using System.Security.Claims;
+using System.Text.Json;
 using AGDevX.Security;
 using Xunit;
 
@@ -586,16 +588,42 @@ public sealed class ClaimsPrincipalExtensionsTryGetTests
     public class When_calling_TryGetBirthdate
     {
         [Fact]
-        public void And_the_claim_exists_then_return_claim_value()
+        public void And_the_claim_exists_with_a_valid_date_then_return_parsed_DateTime()
         {
-            var cp = CreatePrincipal(new Claim("birthdate", "1990-01-15"));
-            Assert.Equal("1990-01-15", cp.TryGetBirthdate());
+            //-- Arrange
+            var cp = CreatePrincipal(new Claim("birthdate", "1990-06-15"));
+
+            //-- Act
+            var result = cp.TryGetBirthdate();
+
+            //-- Assert
+            Assert.Equal(new DateTime(1990, 6, 15), result);
         }
 
         [Fact]
         public void And_the_claim_is_missing_then_return_null()
         {
-            Assert.Null(EmptyPrincipal().TryGetBirthdate());
+            //-- Arrange
+            var cp = EmptyPrincipal();
+
+            //-- Act
+            var result = cp.TryGetBirthdate();
+
+            //-- Assert
+            Assert.Null(result);
+        }
+
+        [Fact]
+        public void And_the_claim_value_is_not_parseable_then_return_null()
+        {
+            //-- Arrange
+            var cp = CreatePrincipal(new Claim("birthdate", "not-a-date"));
+
+            //-- Act
+            var result = cp.TryGetBirthdate();
+
+            //-- Assert
+            Assert.Null(result);
         }
     }
 
@@ -666,16 +694,44 @@ public sealed class ClaimsPrincipalExtensionsTryGetTests
     public class When_calling_TryGetAddress
     {
         [Fact]
-        public void And_the_claim_exists_then_return_claim_value()
+        public void And_the_claim_exists_with_valid_JSON_then_return_parsed_JsonElement()
         {
-            var cp = CreatePrincipal(new Claim("address", "{\"street_address\":\"123 Main St\"}"));
-            Assert.Equal("{\"street_address\":\"123 Main St\"}", cp.TryGetAddress());
+            //-- Arrange
+            var cp = CreatePrincipal(new Claim("address", "{\"street_address\":\"123 Main St\",\"locality\":\"Anytown\"}"));
+
+            //-- Act
+            var result = cp.TryGetAddress();
+
+            //-- Assert
+            Assert.NotNull(result);
+            Assert.Equal("123 Main St", result.Value.GetProperty("street_address").GetString());
+            Assert.Equal("Anytown", result.Value.GetProperty("locality").GetString());
         }
 
         [Fact]
         public void And_the_claim_is_missing_then_return_null()
         {
-            Assert.Null(EmptyPrincipal().TryGetAddress());
+            //-- Arrange
+            var cp = EmptyPrincipal();
+
+            //-- Act
+            var result = cp.TryGetAddress();
+
+            //-- Assert
+            Assert.Null(result);
+        }
+
+        [Fact]
+        public void And_the_claim_value_is_invalid_JSON_then_return_null()
+        {
+            //-- Arrange
+            var cp = CreatePrincipal(new Claim("address", "not valid json {{{"));
+
+            //-- Act
+            var result = cp.TryGetAddress();
+
+            //-- Assert
+            Assert.Null(result);
         }
     }
 
