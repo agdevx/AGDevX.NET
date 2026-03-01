@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Security.Claims;
 using AGDevX.Enums;
@@ -72,7 +73,7 @@ public static class ClaimsPrincipalExtensions
     {
         var claim = claimsPrincipal.GetClaim(JwtClaimType.Expiration.StringValue());
         if (claim == null) return null;
-        return (int)Convert.ChangeType(claim.Value, typeof(int));
+        return (int)Convert.ChangeType(claim.Value, typeof(int), CultureInfo.InvariantCulture);
     }
 
     #endregion
@@ -89,7 +90,7 @@ public static class ClaimsPrincipalExtensions
     {
         var claim = claimsPrincipal.GetClaim(JwtClaimType.NotBefore.StringValue());
         if (claim == null) return null;
-        return (int)Convert.ChangeType(claim.Value, typeof(int));
+        return (int)Convert.ChangeType(claim.Value, typeof(int), CultureInfo.InvariantCulture);
     }
 
     #endregion
@@ -106,7 +107,7 @@ public static class ClaimsPrincipalExtensions
     {
         var claim = claimsPrincipal.GetClaim(JwtClaimType.IssuedAt.StringValue());
         if (claim == null) return null;
-        return (int)Convert.ChangeType(claim.Value, typeof(int));
+        return (int)Convert.ChangeType(claim.Value, typeof(int), CultureInfo.InvariantCulture);
     }
 
     #endregion
@@ -291,7 +292,7 @@ public static class ClaimsPrincipalExtensions
     {
         var claim = claimsPrincipal.GetClaim(JwtClaimType.EmailVerified.StringValue());
         if (claim == null) return null;
-        return (bool)Convert.ChangeType(claim.Value, typeof(bool));
+        return (bool)Convert.ChangeType(claim.Value, typeof(bool), CultureInfo.InvariantCulture);
     }
 
     #endregion
@@ -385,7 +386,7 @@ public static class ClaimsPrincipalExtensions
     {
         var claim = claimsPrincipal.GetClaim(JwtClaimType.PhoneNumberVerified.StringValue());
         if (claim == null) return null;
-        return (bool)Convert.ChangeType(claim.Value, typeof(bool));
+        return (bool)Convert.ChangeType(claim.Value, typeof(bool), CultureInfo.InvariantCulture);
     }
 
     #endregion
@@ -419,7 +420,7 @@ public static class ClaimsPrincipalExtensions
     {
         var claim = claimsPrincipal.GetClaim(JwtClaimType.UpdatedAt.StringValue());
         if (claim == null) return null;
-        return (int)Convert.ChangeType(claim.Value, typeof(int));
+        return (int)Convert.ChangeType(claim.Value, typeof(int), CultureInfo.InvariantCulture);
     }
 
     #endregion
@@ -466,7 +467,7 @@ public static class ClaimsPrincipalExtensions
     {
         var claim = claimsPrincipal.GetClaim(JwtClaimType.AuthTime.StringValue());
         if (claim == null) return null;
-        return (int)Convert.ChangeType(claim.Value, typeof(int));
+        return (int)Convert.ChangeType(claim.Value, typeof(int), CultureInfo.InvariantCulture);
     }
 
     #endregion
@@ -621,7 +622,7 @@ public static class ClaimsPrincipalExtensions
     {
         var claim = claimsPrincipal.GetClaim(CustomClaimType.IsActive.StringValue());
         if (claim == null) return null;
-        return (bool)Convert.ChangeType(claim.Value, typeof(bool));
+        return (bool)Convert.ChangeType(claim.Value, typeof(bool), CultureInfo.InvariantCulture);
     }
 
     #endregion
@@ -652,7 +653,7 @@ public static class ClaimsPrincipalExtensions
             return default;
         }
 
-        return (T)Convert.ChangeType(claim.Value, typeof(T));
+        return (T)Convert.ChangeType(claim.Value, typeof(T), CultureInfo.InvariantCulture);
     }
 
     private static Claim? GetClaim(this ClaimsPrincipal claimsPrincipal, string claimType)
@@ -674,7 +675,7 @@ public static class ClaimsPrincipalExtensions
             return default;
         }
 
-        return claims!.Select(c => (T)Convert.ChangeType(c.Value, typeof(T))).ToList();
+        return claims!.Select(c => (T)Convert.ChangeType(c.Value, typeof(T), CultureInfo.InvariantCulture)).ToList();
     }
 
     private static List<Claim>? GetClaims(this ClaimsPrincipal claimsPrincipal, string claimType)

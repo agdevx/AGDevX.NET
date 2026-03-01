@@ -4,6 +4,15 @@
 		<TargetFramework>net10.0</TargetFramework>
 		<ImplicitUsings>disable</ImplicitUsings>
 		<Nullable>enable</Nullable>
+		<EnableNETAnalyzers>true</EnableNETAnalyzers>
+		<AnalysisLevel>latest-recommended</AnalysisLevel>
+		<!--
+			CA1720: Extension method 'this' parameters that mirror their type (e.g., `this Guid guid`) are idiomatic;
+			        renaming them away from the type name would harm readability.
+			CA2208: AssemblyExtensions throws ArgumentNullException for a null property (assembly.FullName), not a
+			        parameter; the descriptive message string is intentional and correct.
+		-->
+		<NoWarn>$(NoWarn);CA1720;CA2208</NoWarn>
 		<GeneratePackageOnBuild>True</GeneratePackageOnBuild>
 		<Title>AGDevX</Title>
 		<PackageProjectUrl>https://github.com/AGDevX/AGDevX.NET</PackageProjectUrl>
