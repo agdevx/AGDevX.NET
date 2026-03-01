@@ -416,6 +416,11 @@ public static class ClaimsPrincipalExtensions
     /// Returns the Address claim value parsed as a <see cref="JsonElement"/>,
     /// or <see langword="null"/> if the claim is missing or the value is not valid JSON.
     /// </summary>
+    /// <remarks>
+    /// The underlying <see cref="JsonDocument"/> is not disposed because <see cref="JsonElement"/>
+    /// becomes invalid after its parent document is disposed. Callers should not hold long-lived
+    /// references to the returned value in memory-sensitive scenarios.
+    /// </remarks>
     public static JsonElement? TryGetAddress(this ClaimsPrincipal claimsPrincipal)
     {
         var value = claimsPrincipal.GetClaimValue<string>(JwtClaimType.Address.StringValue());
