@@ -10,8 +10,15 @@ namespace AGDevX.Enums;
 [AttributeUsage(AttributeTargets.Field)]
 public sealed class EnumStringValueAttribute : Attribute
 {
+    /// <summary>
+    /// The string value associated with the decorated enum field.
+    /// </summary>
     public string Value { get; }
 
+    /// <summary>
+    /// Initializes a new instance of the <see cref="EnumStringValueAttribute"/> class with the specified string value.
+    /// </summary>
+    /// <param name="value">The string value to associate with the decorated enum field.</param>
     public EnumStringValueAttribute(string value)
     {
         Value = value;

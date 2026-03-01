@@ -14,18 +14,59 @@ namespace AGDevX.Exceptions;
 /// </summary>
 public sealed class ExceptionDetail
 {
+    /// <summary>
+    /// A code identifying the type or origin of the exception.
+    /// </summary>
     public required string Code { get; set; }
+
+    /// <summary>
+    /// The exception error message.
+    /// </summary>
     public required string Message { get; set; }
+
+    /// <summary>
+    /// The parsed stack frames from the exception, or <see langword="null"/> if stack frames were not included.
+    /// </summary>
     public IEnumerable<StackFrameModel>? StackFrames { get; set; }
+
+    /// <summary>
+    /// The inner exception detail, or <see langword="null"/> if there is no inner exception.
+    /// </summary>
     public ExceptionDetail? InnerException { get; set; }
 
+    /// <summary>
+    /// Structured representation of a single stack frame.
+    /// </summary>
     public sealed class StackFrameModel
     {
+        /// <summary>
+        /// The line number in the source code file where the frame originated.
+        /// </summary>
         public int LineNumber { get; set; }
+
+        /// <summary>
+        /// The method signature where the frame originated.
+        /// </summary>
         public string? Method { get; set; }
+
+        /// <summary>
+        /// The fully qualified class name where the frame originated.
+        /// </summary>
         public string? Class { get; set; }
+
+        /// <summary>
+        /// The full name of the assembly containing the frame.
+        /// </summary>
         public string? AssemblyName { get; set; }
+
+        /// <summary>
+        /// The file path of the assembly containing the frame.
+        /// </summary>
         public string? AssemblyFile { get; set; }
+
+        /// <summary>
+        /// The source code file path where the frame originated.
+        /// </summary>
         public string? CodeFile { get; set; }
     }
 }
