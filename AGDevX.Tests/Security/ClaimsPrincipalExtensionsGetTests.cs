@@ -1,5 +1,7 @@
+using System;
 using System.Collections.Generic;
 using System.Security.Claims;
+using System.Text.Json;
 using AGDevX.Exceptions;
 using AGDevX.Security;
 using Xunit;
@@ -422,10 +424,16 @@ public sealed class ClaimsPrincipalExtensionsGetTests
     public class When_calling_GetBirthdate
     {
         [Fact]
-        public void And_the_claim_exists_then_return_claim_value()
+        public void And_the_claim_exists_with_a_valid_date_then_return_parsed_DateTime()
         {
-            var cp = CreatePrincipal(new Claim("birthdate", "1990-01-15"));
-            Assert.Equal("1990-01-15", cp.GetBirthdate());
+            //-- Arrange
+            var cp = CreatePrincipal(new Claim("birthdate", "1990-06-15"));
+
+            //-- Act
+            var result = cp.GetBirthdate();
+
+            //-- Assert
+            Assert.Equal(new DateTime(1990, 6, 15), result);
         }
 
         [Fact]
@@ -502,10 +510,17 @@ public sealed class ClaimsPrincipalExtensionsGetTests
     public class When_calling_GetAddress
     {
         [Fact]
-        public void And_the_claim_exists_then_return_claim_value()
+        public void And_the_claim_exists_with_valid_JSON_then_return_parsed_JsonElement()
         {
-            var cp = CreatePrincipal(new Claim("address", "{\"street_address\":\"123 Main St\"}"));
-            Assert.Equal("{\"street_address\":\"123 Main St\"}", cp.GetAddress());
+            //-- Arrange
+            var cp = CreatePrincipal(new Claim("address", "{\"street_address\":\"123 Main St\",\"locality\":\"Anytown\"}"));
+
+            //-- Act
+            var result = cp.GetAddress();
+
+            //-- Assert
+            Assert.Equal("123 Main St", result.GetProperty("street_address").GetString());
+            Assert.Equal("Anytown", result.GetProperty("locality").GetString());
         }
 
         [Fact]
