@@ -18,7 +18,7 @@ public class DateTimeExtensionsTests
             var kindSpecifiedDateTime = originalDateTime.SpecifyKind(DateTimeKind.Local);
 
             //-- Assert
-            Assert.False(kindSpecifiedDateTime.Kind == DateTimeKind.Utc);
+            Assert.NotEqual(DateTimeKind.Utc, kindSpecifiedDateTime.Kind);
         }
 
         [Fact]
@@ -31,7 +31,7 @@ public class DateTimeExtensionsTests
             var kindSpecifiedDateTime = originalDateTime.SpecifyKind(DateTimeKind.Utc);
 
             //-- Assert
-            Assert.True(kindSpecifiedDateTime.Kind == DateTimeKind.Utc);
+            Assert.Equal(DateTimeKind.Utc, kindSpecifiedDateTime.Kind);
         }
     }
 }

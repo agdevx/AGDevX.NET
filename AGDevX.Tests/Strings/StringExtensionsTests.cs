@@ -39,13 +39,13 @@ public class StringExtensionsTests
 
         [Theory]
         [InlineData("equal", null)]
-        public void And_the_str2_param_is_null_then_throw_exception(string str1, string str2)
+        public void And_the_str2_param_is_null_then_throw_exception(string str1, string? str2)
         {
             //-- Arrange
             //-- <see InlineData>
 
             //-- Act & Assert
-            Assert.Throws<ExtensionMethodParameterNullException>(() => str1.EqualsIgnoreCase(str2));
+            Assert.Throws<ExtensionMethodParameterNullException>(() => str1.EqualsIgnoreCase(str2!));
         }
     }
 
@@ -82,13 +82,13 @@ public class StringExtensionsTests
 
         [Theory]
         [InlineData("equal", null)]
-        public void And_the_str2_param_is_null_then_throw_exception(string str1, string str2)
+        public void And_the_str2_param_is_null_then_throw_exception(string str1, string? str2)
         {
             //-- Arrange
             //-- <see InlineData>
 
             //-- Act & Assert
-            Assert.Throws<ExtensionMethodParameterNullException>(() => str1.StartsWithIgnoreCase(str2));
+            Assert.Throws<ExtensionMethodParameterNullException>(() => str1.StartsWithIgnoreCase(str2!));
         }
     }
 
@@ -125,13 +125,13 @@ public class StringExtensionsTests
 
         [Theory]
         [InlineData("equal", null)]
-        public void And_the_str2_param_is_null_then_throw_exception(string str1, string str2)
+        public void And_the_str2_param_is_null_then_throw_exception(string str1, string? str2)
         {
             //-- Arrange
             //-- <see InlineData>
 
             //-- Act & Assert
-            Assert.Throws<ExtensionMethodParameterNullException>(() => str1.ContainsIgnoreCase(str2));
+            Assert.Throws<ExtensionMethodParameterNullException>(() => str1.ContainsIgnoreCase(str2!));
         }
     }
 
@@ -140,7 +140,7 @@ public class StringExtensionsTests
         [Theory]
         [InlineData(null)]
         [InlineData("   ")]
-        public void And_the_string_is_null_or_whitespace_then_return_true(string str)
+        public void And_the_string_is_null_or_whitespace_then_return_true(string? str)
         {
             //-- Arrange
             //-- <see InlineData>
@@ -186,7 +186,7 @@ public class StringExtensionsTests
         [Theory]
         [InlineData(null)]
         [InlineData("   ")]
-        public void And_the_string_null_or_whitespace_then_return_false(string str)
+        public void And_the_string_null_or_whitespace_then_return_false(string? str)
         {
             //-- Arrange
             //-- <see InlineData>
@@ -306,13 +306,13 @@ public class StringExtensionsTests
         [InlineData(" . ")]
         [InlineData(" ")]
         [InlineData("      ")]
-        public void And_the_string_is_null_or_whitespace_or_has_non_whitespace_value_then_return_false(string str)
+        public void And_the_string_is_null_or_whitespace_or_has_non_whitespace_value_then_return_false(string? str)
         {
             //-- Arrange
             //-- <see InlineData>
 
             //-- Act
-            var result = str.IsEmpty();
+            var result = str!.IsEmpty();
 
             //-- Assert
             Assert.False(result);
@@ -330,13 +330,13 @@ public class StringExtensionsTests
         [InlineData(" . ")]
         [InlineData(" ")]
         [InlineData("      ")]
-        public void And_the_string_is_null_or_whitespace_or_has_non_whitespace_value_then_return_true(string str)
+        public void And_the_string_is_null_or_whitespace_or_has_non_whitespace_value_then_return_true(string? str)
         {
             //-- Arrange
             //-- <see InlineData>
 
             //-- Act
-            var result = str.IsNotEmpty();
+            var result = str!.IsNotEmpty();
 
             //-- Assert
             Assert.True(result);

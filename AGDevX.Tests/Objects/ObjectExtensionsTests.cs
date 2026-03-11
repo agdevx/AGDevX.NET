@@ -9,7 +9,7 @@ public class ObjectExtensionsTests
     {
         [Theory]
         [InlineData(null)]
-        public void And_the_object_is_null_then_return_true(object obj)
+        public void And_the_object_is_null_then_return_true(object? obj)
         {
             //-- Arrange
             //-- <see InlineData>
@@ -68,7 +68,7 @@ public class ObjectExtensionsTests
 
         [Theory]
         [InlineData(null)]
-        public void And_the_object_is_null_then_return_false(object obj)
+        public void And_the_object_is_null_then_return_false(object? obj)
         {
             //-- Arrange
             //-- <see InlineData>
