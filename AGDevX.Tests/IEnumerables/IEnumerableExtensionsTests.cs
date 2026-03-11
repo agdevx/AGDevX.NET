@@ -1,5 +1,6 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
+using System.Linq;
 using AGDevX.Exceptions;
 using AGDevX.IEnumerables;
 using Xunit;
@@ -109,7 +110,7 @@ public class IEnumerableExtensionsTests
             List<string>? strings2 = null;
 
             //-- Act & Assert
-            Assert.Throws<ExtensionMethodParameterNullException>(() => strings1.HasCommonStringElement(strings2));
+            Assert.Throws<ExtensionMethodParameterNullException>(() => strings1.HasCommonStringElement(strings2!));
         }
     }
 
@@ -122,12 +123,10 @@ public class IEnumerableExtensionsTests
             List<Guid>? ids = null;
 
             //-- Act
-#pragma warning disable CS8604 // Possible null reference argument.
             var dataTable = ids.ToDataTable();
-#pragma warning restore CS8604 // Possible null reference argument.
 
             //-- Assert
-            Assert.True(dataTable.Rows.Count == 0);
+            Assert.Empty(dataTable.Rows);
         }
 
         [Fact]
@@ -140,7 +139,7 @@ public class IEnumerableExtensionsTests
             var dataTable = ids.ToDataTable();
 
             //-- Assert
-            Assert.True(dataTable.Rows.Count == 0);
+            Assert.Empty(dataTable.Rows);
         }
 
         [Fact]
@@ -157,10 +156,10 @@ public class IEnumerableExtensionsTests
             var dataTable = ids.ToDataTable();
 
             //-- Assert
-            Assert.True(dataTable.Rows.Count == 1);
-            Assert.True(dataTable.Columns.Count == 1);
-            Assert.True(dataTable.Columns.Contains("Id"));
-            Assert.True(new Guid(dataTable.Rows[0]["Id"].ToString()!) == guid);
+            Assert.Single(dataTable.Rows);
+            Assert.Single(dataTable.Columns);
+            Assert.Contains("Id", dataTable.Columns.Cast<System.Data.DataColumn>().Select(c => c.ColumnName));
+            Assert.Equal(guid, new Guid(dataTable.Rows[0]["Id"].ToString()!));
         }
 
         [Fact]
@@ -179,11 +178,11 @@ public class IEnumerableExtensionsTests
             var dataTable = ids.ToDataTable();
 
             //-- Assert
-            Assert.True(dataTable.Rows.Count == 2);
-            Assert.True(dataTable.Columns.Count == 1);
-            Assert.True(dataTable.Columns.Contains("Id"));
-            Assert.True(new Guid(dataTable.Rows[0]["Id"].ToString()!) == guid1);
-            Assert.True(new Guid(dataTable.Rows[1]["Id"].ToString()!) == guid2);
+            Assert.Equal(2, dataTable.Rows.Count);
+            Assert.Single(dataTable.Columns);
+            Assert.Contains("Id", dataTable.Columns.Cast<System.Data.DataColumn>().Select(c => c.ColumnName));
+            Assert.Equal(guid1, new Guid(dataTable.Rows[0]["Id"].ToString()!));
+            Assert.Equal(guid2, new Guid(dataTable.Rows[1]["Id"].ToString()!));
         }
 
         [Fact]
@@ -202,11 +201,11 @@ public class IEnumerableExtensionsTests
             var dataTable = ids.ToDataTable("TheId");
 
             //-- Assert
-            Assert.True(dataTable.Rows.Count == 2);
-            Assert.True(dataTable.Columns.Count == 1);
-            Assert.True(dataTable.Columns.Contains("TheId"));
-            Assert.True(new Guid(dataTable.Rows[0]["TheId"].ToString()!) == guid1);
-            Assert.True(new Guid(dataTable.Rows[1]["TheId"].ToString()!) == guid2);
+            Assert.Equal(2, dataTable.Rows.Count);
+            Assert.Single(dataTable.Columns);
+            Assert.Contains("TheId", dataTable.Columns.Cast<System.Data.DataColumn>().Select(c => c.ColumnName));
+            Assert.Equal(guid1, new Guid(dataTable.Rows[0]["TheId"].ToString()!));
+            Assert.Equal(guid2, new Guid(dataTable.Rows[1]["TheId"].ToString()!));
         }
     }
 
@@ -242,7 +241,7 @@ public class IEnumerableExtensionsTests
             string? str = null;
 
             //-- Act & Assert
-            Assert.Throws<ExtensionMethodParameterNullException>(() => strings.ContainsIgnoreCase(str));
+            Assert.Throws<ExtensionMethodParameterNullException>(() => strings.ContainsIgnoreCase(str!));
         }
 
         [Fact]

@@ -81,21 +81,21 @@ public static class StringExtensions
     /// <summary>
     /// Determines if a string only consists of whitespace
     /// </summary>
-    /// <param name="str">String to check (required)</param>
-    /// <returns>True if the string only consists of whitespace. Otherwise, false.</returns>
-    public static bool IsWhiteSpace([NotNullWhen(true)] this string str)
+    /// <param name="str">String to check</param>
+    /// <returns>True if the string only consists of whitespace. Otherwise, false. Null returns false because null is not whitespace.</returns>
+    public static bool IsWhiteSpace([AllowNull] [NotNullWhen(true)] this string str)
     {
-        return str != string.Empty && str.All(char.IsWhiteSpace);
+        return str != null && str != string.Empty && str.All(char.IsWhiteSpace);
     }
 
     /// <summary>
     /// Determines if a string contains at least one character that is not whitespace
     /// </summary>
-    /// <param name="str">String to check (required)</param>
-    /// <returns>True if a string contains at least one character that is not whitespace. Otherwise, false.</returns>
-    public static bool IsNotWhiteSpace([MaybeNullWhen(true)] this string str)
+    /// <param name="str">String to check</param>
+    /// <returns>True if a string contains at least one character that is not whitespace. Null returns true because null is not whitespace.</returns>
+    public static bool IsNotWhiteSpace([AllowNull] [NotNullWhen(false)] this string str)
     {
-        return str == string.Empty || !str.All(char.IsWhiteSpace);
+        return str == null || str == string.Empty || !str.All(char.IsWhiteSpace);
     }
 
     /// <summary>
@@ -103,7 +103,7 @@ public static class StringExtensions
     /// </summary>
     /// <param name="str">String to check (required)</param>
     /// <returns>True if the string is empty. Otherwise, false.</returns>
-    public static bool IsEmpty([NotNullWhen(true)] this string str)
+    public static bool IsEmpty(this string str)
     {
         return str == string.Empty;
     }
@@ -113,7 +113,7 @@ public static class StringExtensions
     /// </summary>
     /// <param name="str">String to check (required)</param>
     /// <returns>True if the string is not empty. Otherwise, false.</returns>
-    public static bool IsNotEmpty([NotNullWhen(true)] this string str)
+    public static bool IsNotEmpty(this string str)
     {
         return str != string.Empty;
     }

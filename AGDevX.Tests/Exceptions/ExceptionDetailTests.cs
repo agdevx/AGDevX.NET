@@ -2,7 +2,6 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using AGDevX.Exceptions;
-using AGDevX.Objects;
 using Xunit;
 
 namespace AGDevX.Tests.Exceptions;
@@ -47,16 +46,16 @@ public sealed class ExceptionDetailTests
                     var exceptionDetail = appStartEx.GetExceptionDetail(includeStackFrames, filterStackFrames, _assemblyPrefixes);
 
                     //-- Assert
-                    Assert.True(exceptionDetail.Code.Equals(_applicationStartupException.Code));
-                    Assert.True(exceptionDetail.Message.Equals(_applicationStartupException.Message));
-                    Assert.True(exceptionDetail.StackFrames.IsNotNull());
+                    Assert.Equal(_applicationStartupException.Code, exceptionDetail.Code);
+                    Assert.Equal(_applicationStartupException.Message, exceptionDetail.Message);
+                    Assert.NotNull(exceptionDetail.StackFrames);
                     Assert.IsType<int>(exceptionDetail.StackFrames.First().LineNumber);
-                    Assert.True(exceptionDetail.StackFrames.First().Method!.Equals("localF<T>()"));
+                    Assert.Equal("localF<T>()", exceptionDetail.StackFrames.First().Method);
                     Assert.Contains("AGDevX.Tests.dll", exceptionDetail.StackFrames.First().AssemblyFile);
                     Assert.Contains("AGDevX.Tests", exceptionDetail.StackFrames.First().AssemblyName);
-                    Assert.True(exceptionDetail.StackFrames.First().Class!.Equals("AGDevX.Tests.Exceptions.ExceptionDetailTests+When_calling_GetExceptionDetail+And_including_stack_frames_and_filtering_stack_frames_for_a_generic_method"));
+                    Assert.Equal("AGDevX.Tests.Exceptions.ExceptionDetailTests+When_calling_GetExceptionDetail+And_including_stack_frames_and_filtering_stack_frames_for_a_generic_method", exceptionDetail.StackFrames.First().Class);
                     Assert.Contains("ExceptionDetailTests.cs", exceptionDetail.StackFrames.First().CodeFile);
-                    Assert.True(exceptionDetail.InnerException.IsNotNull());
+                    Assert.NotNull(exceptionDetail.InnerException);
                 }
             }
         }
@@ -83,16 +82,16 @@ public sealed class ExceptionDetailTests
                     var exceptionDetail = appStartEx.GetExceptionDetail(includeStackFrames, filterStackFrames, _assemblyPrefixes);
 
                     //-- Assert
-                    Assert.True(exceptionDetail.Code.Equals(applicationStartupException.Code));
-                    Assert.True(exceptionDetail.Message.Equals(applicationStartupException.Message));
-                    Assert.True(exceptionDetail.StackFrames.IsNotNull());
+                    Assert.Equal(applicationStartupException.Code, exceptionDetail.Code);
+                    Assert.Equal(applicationStartupException.Message, exceptionDetail.Message);
+                    Assert.NotNull(exceptionDetail.StackFrames);
                     Assert.IsType<int>(exceptionDetail.StackFrames.First().LineNumber);
-                    Assert.True(exceptionDetail.StackFrames.First().Method!.Equals("Then_return_filtered_stack_frames()"));
+                    Assert.Equal("Then_return_filtered_stack_frames()", exceptionDetail.StackFrames.First().Method);
                     Assert.Contains("AGDevX.Tests.dll", exceptionDetail.StackFrames.First().AssemblyFile);
                     Assert.Contains("AGDevX.Tests", exceptionDetail.StackFrames.First().AssemblyName);
-                    Assert.True(exceptionDetail.StackFrames.First().Class!.Equals("AGDevX.Tests.Exceptions.ExceptionDetailTests+When_calling_GetExceptionDetail+And_including_stack_frames_and_filtering_stack_frames_for_a_non_generic_method"));
+                    Assert.Equal("AGDevX.Tests.Exceptions.ExceptionDetailTests+When_calling_GetExceptionDetail+And_including_stack_frames_and_filtering_stack_frames_for_a_non_generic_method", exceptionDetail.StackFrames.First().Class);
                     Assert.Contains("ExceptionDetailTests.cs", exceptionDetail.StackFrames.First().CodeFile);
-                    Assert.True(exceptionDetail.InnerException.IsNotNull());
+                    Assert.NotNull(exceptionDetail.InnerException);
                 }
             }
         }
@@ -113,10 +112,10 @@ public sealed class ExceptionDetailTests
                 var exceptionDetail = applicationStartupException.GetExceptionDetail(includeStackFrames, filterStackFrames);
 
                 //-- Assert
-                Assert.True(exceptionDetail.Code.Equals(applicationStartupException.Code));
-                Assert.True(exceptionDetail.Message.Equals(applicationStartupException.Message));
-                Assert.True(exceptionDetail.StackFrames.IsNotNull());
-                Assert.True(exceptionDetail.InnerException.IsNotNull());
+                Assert.Equal(applicationStartupException.Code, exceptionDetail.Code);
+                Assert.Equal(applicationStartupException.Message, exceptionDetail.Message);
+                Assert.NotNull(exceptionDetail.StackFrames);
+                Assert.NotNull(exceptionDetail.InnerException);
             }
         }
 
@@ -142,10 +141,10 @@ public sealed class ExceptionDetailTests
                     var exceptionDetail = appStartEx.GetExceptionDetail(includeStackFrames, filterStackFrames, _assemblyPrefixes);
 
                     //-- Assert
-                    Assert.True(exceptionDetail.Code.Equals(applicationStartupException.Code));
-                    Assert.True(exceptionDetail.Message.Equals(applicationStartupException.Message));
-                    Assert.True(exceptionDetail.StackFrames.IsNull());
-                    Assert.True(exceptionDetail.InnerException.IsNotNull());
+                    Assert.Equal(applicationStartupException.Code, exceptionDetail.Code);
+                    Assert.Equal(applicationStartupException.Message, exceptionDetail.Message);
+                    Assert.Null(exceptionDetail.StackFrames);
+                    Assert.NotNull(exceptionDetail.InnerException);
                 }
             }
         }

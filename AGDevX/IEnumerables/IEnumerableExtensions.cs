@@ -15,11 +15,9 @@ public static class IEnumerableExtensions
     /// <typeparam name="T">Type of the IEnumerable</typeparam>
     /// <param name="enumerable">IEnumerable to check (required)</param>
     /// <returns>True if the IEnumerable is null or empty</returns>
-    public static bool IsNullOrEmpty<T>(this IEnumerable<T>? enumerable)
+    public static bool IsNullOrEmpty<T>([NotNullWhen(false)] this IEnumerable<T>? enumerable)
     {
-        var isNullOrEmpty = enumerable == null;
-        isNullOrEmpty = isNullOrEmpty || !enumerable!.Any();
-        return isNullOrEmpty;
+        return enumerable == null || !enumerable.Any();
     }
 
 
@@ -49,7 +47,7 @@ public static class IEnumerableExtensions
     /// <param name="enumerable">IEnumerable to turn into a DataTable (required)</param>
     /// <param name="columnName">Name to give the new DataTable (required)</param>
     /// <returns>Database with rows the correspond to the IEnumerable. If the IEnumerable is null or empty, the returned DataTable will have no rows.</returns>
-    public static DataTable ToDataTable<T>(this IEnumerable<T> enumerable, string columnName = "Id")
+    public static DataTable ToDataTable<T>(this IEnumerable<T>? enumerable, string columnName = "Id")
     {
         var dataTable = new DataTable("DT");
         dataTable.Columns.Add(columnName);

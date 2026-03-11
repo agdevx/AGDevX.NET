@@ -176,7 +176,7 @@ static AGDevX.IEnumerables.IEnumerableExtensions.AnySafe<T>(this System.Collecti
 static AGDevX.IEnumerables.IEnumerableExtensions.ContainsIgnoreCase(this System.Collections.Generic.IEnumerable<string?>! strings, string! str, System.StringComparer? stringComparer = null) -> bool
 static AGDevX.IEnumerables.IEnumerableExtensions.HasCommonStringElement(this System.Collections.Generic.IEnumerable<string!>! enumerable1, System.Collections.Generic.IEnumerable<string!>! enumerable2, System.StringComparer? stringComparer = null) -> bool
 static AGDevX.IEnumerables.IEnumerableExtensions.IsNullOrEmpty<T>(this System.Collections.Generic.IEnumerable<T>? enumerable) -> bool
-static AGDevX.IEnumerables.IEnumerableExtensions.ToDataTable<T>(this System.Collections.Generic.IEnumerable<T>! enumerable, string! columnName = "Id") -> System.Data.DataTable!
+static AGDevX.IEnumerables.IEnumerableExtensions.ToDataTable<T>(this System.Collections.Generic.IEnumerable<T>? enumerable, string! columnName = "Id") -> System.Data.DataTable!
 static AGDevX.Objects.ObjectExtensions.IsNotNull(this object? obj) -> bool
 static AGDevX.Objects.ObjectExtensions.IsNull(this object? obj) -> bool
 static AGDevX.Security.ClaimsPrincipalExtensions.GetAccessTokenHash(this System.Security.Claims.ClaimsPrincipal! claimsPrincipal) -> string!
