@@ -83,6 +83,7 @@ public static class ExceptionDetailExtensions
     /// <param name="filterStackFrames">Determines wither or not to filter the Stack Frames (required)</param>
     /// <param name="assemblyPrefixes">Assembly FullName prefixes that is used to filter the StackFrames (required)</param>
     /// <returns><see cref="ExceptionDetail"/></returns>
+#pragma warning disable RS0026 // Both overloads are intentional: CodedApplicationException carries its own Code; Exception requires an explicit code parameter
     public static ExceptionDetail GetExceptionDetail(this CodedApplicationException codedEx, bool includeStackFrames = true, bool filterStackFrames = false, IEnumerable<string>? assemblyPrefixes = default)
     {
         assemblyPrefixes ??= new List<string>();
@@ -128,6 +129,7 @@ public static class ExceptionDetailExtensions
     /// <param name="assemblyPrefixes">Assembly FullName prefixes that is used to filter the StackFrames (required)</param>
     /// <returns><see cref="ExceptionDetail"/></returns>
     public static ExceptionDetail GetExceptionDetail(this Exception ex, string code, bool includeStackFrames = true, bool filterStackFrames = false, IEnumerable<string>? assemblyPrefixes = default)
+#pragma warning restore RS0026
     {
         assemblyPrefixes ??= new List<string>();
 

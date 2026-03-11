@@ -207,7 +207,7 @@ public class StringExtensionsTests
         [InlineData("\t")]
         [InlineData("\n")]
         [InlineData("\t \n")]
-        public void And_the_string_is_whitespace_then_return_true(string str)
+        public void And_the_string_is_whitespace_then_return_true(string? str)
         {
             //-- Arrange
             //-- <see InlineData>
@@ -220,13 +220,14 @@ public class StringExtensionsTests
         }
 
         [Theory]
+        [InlineData(null)]
         [InlineData("")]
         [InlineData("a")]
         [InlineData(" b")]
         [InlineData("c ")]
         [InlineData(" d ")]
         [InlineData(" . ")]
-        public void And_the_string_is_not_whitespace_then_return_false(string str)
+        public void And_the_string_is_not_whitespace_then_return_false(string? str)
         {
             //-- Arrange
             //-- <see InlineData>
@@ -242,13 +243,14 @@ public class StringExtensionsTests
     public class When_calling_IsNotWhiteSpace
     {
         [Theory]
+        [InlineData(null)]
         [InlineData("")]
         [InlineData("a")]
         [InlineData(" b")]
         [InlineData("c ")]
         [InlineData(" d ")]
         [InlineData(" . ")]
-        public void And_the_string_is_null_or_not_whitespace_then_return_true(string str)
+        public void And_the_string_is_null_or_not_whitespace_then_return_true(string? str)
         {
             //-- Arrange
             //-- <see InlineData>
@@ -266,7 +268,7 @@ public class StringExtensionsTests
         [InlineData("\t")]
         [InlineData("\n")]
         [InlineData("\t \n")]
-        public void And_the_string_is_whitespace_only_then_return_false(string str)
+        public void And_the_string_is_whitespace_only_then_return_false(string? str)
         {
             //-- Arrange
             //-- <see InlineData>

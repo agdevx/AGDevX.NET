@@ -122,9 +122,7 @@ public class IEnumerableExtensionsTests
             List<Guid>? ids = null;
 
             //-- Act
-#pragma warning disable CS8604 // Possible null reference argument.
             var dataTable = ids.ToDataTable();
-#pragma warning restore CS8604 // Possible null reference argument.
 
             //-- Assert
             Assert.True(dataTable.Rows.Count == 0);
